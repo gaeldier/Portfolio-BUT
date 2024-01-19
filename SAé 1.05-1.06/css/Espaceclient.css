@@ -1,0 +1,118 @@
+section.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+  Le div directement sous la section nous permet 
+  de créer une boite avec une couleur d’arrière-plan
+  et une bordure.
+*/
+section.login-container > div{
+    width: 450px;
+  
+    margin: auto;
+  
+    padding: 20px;
+
+    text-align: center;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+}
+
+/*
+    Nous plaçons les éléments à l’intérieur du formulaire
+    en « flexbox » sur une seule colonne.
+*/
+section.login-container form{
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="password"], 
+form input[type="text"], 
+form button[type="submit"] {
+    width: 100%;
+  
+    margin-bottom: 32px;
+    padding: 16px;
+  
+    color: #333;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    outline: 0;
+}
+
+/*
+    Au survol et au focus des champs de saisie de texte,
+    nous changeons la couleur d’arrière-plan.
+*/
+form input[type="text"]:focus,
+form input[type="text"]:hover,
+form input[type="password"]:focus,
+form input[type="password"]:hover {
+    background-color: #ccc;
+}
+
+/*
+    Mises-en forme du bouton pour l’envoi du formulaire.
+*/
+form button[type="submit"] {
+    font-weight: bold;
+    color: #eee;
+    text-transform: uppercase;
+
+    background-color: #00AEEF;
+}
+
+/*
+    Mises-en forme du bouton pour l’envoi du formulaire au survol et au focus.
+*/
+form button[type="submit"]:focus,
+form button[type="submit"]:hover {
+    background-color: #00243B;
+}
+
+/*------------------
+   Reset
+------------------*/
+
+html{
+    box-sizing: border-box;
+}
+
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+
+/*------------------
+   Base
+------------------*/
+
+body{
+    background-color: white;
+    font-family: 'Outfit';
+}
+
+
+/*------------------
+   Mise en page
+------------------*/
+
+.wrapper{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer{
+    position: absolute;
+    background-color: #00243B;
+    border-radius: 5px;
+    bottom: 0;
+}
