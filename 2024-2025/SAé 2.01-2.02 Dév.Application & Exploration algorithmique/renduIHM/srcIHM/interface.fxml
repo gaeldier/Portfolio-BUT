@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: white;">
+        <items>
+            <ImageView fitHeight="43.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.png" />
+               </image></ImageView>
+          <Button fx:id="boutonAccueil" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Accueil">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="boutonAffectations" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-underline: true;" text="Affectations">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="boutonPaire" mnemonicParsing="false" onAction="#handlePaires" style="-fx-background-color: transparent; -fx-underline: true;" text="Paire(s)">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+        </items>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ToolBar>
+      <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Pane fx:id="pageAccueil" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1200.0" visible="false">
+               <children>
+                  <ImageView depthTest="DISABLE" fitHeight="545.0" fitWidth="602.0" layoutX="-128.0" layoutY="1.0" opacity="0.72" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/globe.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="323.0" layoutY="127.0" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="603.0" text="Bienvenue sur Linguistud' !">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="boutonCommencer" layoutX="531.0" layoutY="241.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleAffectations" prefHeight="33.0" prefWidth="187.0" style="-fx-background-color: white; -fx-border-radius: 50; -fx-border-color: black;" text="Commencer !">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="pageAffectations" prefHeight="358.0" prefWidth="1200.0" visible="false">
+               <children>
+                  <Button fx:id="boutonPlus" layoutX="582.0" layoutY="259.0" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handlePlus" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-border-radius: 50; -fx-border-color: black;" text="+">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="299.0" layoutY="209.0" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="603.0" text="Charger une liste">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="pageListe" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="14.0" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="102.0" text="Liste.csv :" underline="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tableViewListe" layoutX="14.0" layoutY="53.0" prefHeight="483.0" prefWidth="979.0">
+                    <columns>
+                        <TableColumn fx:id="columnNom" prefWidth="75.0" text="Nom" />
+                        <TableColumn fx:id="columnPrenom" prefWidth="75.0" text="Prénom" />
+                      <TableColumn fx:id="columnDateNaissance" prefWidth="121.0" text="Date naissance" />
+                      <TableColumn fx:id="columnPays" minWidth="6.0" prefWidth="70.0" text="Pays" />
+                        <TableColumn fx:id="columnGenre" prefWidth="75.0" text="Genre" />
+                        <TableColumn fx:id="columnPairGenre" prefWidth="87.0" text="PairGenre" />
+                        <TableColumn fx:id="columnAllergie" prefWidth="67.0" text="Allergie" />
+                        <TableColumn fx:id="columnAnimal" prefWidth="65.0" text="Animal" />
+                        <TableColumn fx:id="columnGFood" prefWidth="60.0" text="GFood" />
+                        <TableColumn fx:id="columnHFood" prefWidth="61.0" text="HFood" />
+                        <TableColumn fx:id="columnHobbies" prefWidth="146.0" text="Hobbies" />
+                        <TableColumn fx:id="columnHistory" prefWidth="75.0" text="History" />
+                    </columns>
+                  </TableView>
+                  <Pane fx:id="pageCréerAsso" layoutX="1006.0" layoutY="53.0" prefHeight="483.0" prefWidth="181.0" style="-fx-background-color: grey;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="1.0" layoutY="115.0" prefHeight="72.0" prefWidth="181.0" text="Créer une association" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="boutonPlus2" layoutX="57.0" layoutY="212.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0" text="+">
+                           <font>
+                              <Font name="System Bold" size="31.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="pageListe1" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <TableView fx:id="tableViewListe2" layoutX="14.0" layoutY="53.0" prefHeight="483.0" prefWidth="979.0">
+                     <columns>
+                        <TableColumn fx:id="columnNom2" prefWidth="75.0" text="Nom" />
+                        <TableColumn fx:id="columnPrenom2" prefWidth="75.0" text="Prénom" />
+                        <TableColumn fx:id="columnDateNaissance2" prefWidth="121.0" text="Date naissance" />
+                        <TableColumn fx:id="columnPays2" minWidth="6.0" prefWidth="70.0" text="Pays" />
+                        <TableColumn fx:id="columnGenre2" prefWidth="75.0" text="Genre" />
+                        <TableColumn fx:id="columnPairGenre2" prefWidth="87.0" text="PairGenre" />
+                        <TableColumn fx:id="columnAllergie2" prefWidth="67.0" text="Allergie" />
+                        <TableColumn fx:id="columnAnimal2" prefWidth="65.0" text="Animal" />
+                        <TableColumn fx:id="columnGFood2" prefWidth="60.0" text="GFood" />
+                        <TableColumn fx:id="columnHFood2" prefWidth="61.0" text="HFood" />
+                        <TableColumn fx:id="columnHobbies2" prefWidth="146.0" text="Hobbies" />
+                        <TableColumn fx:id="columnHistory2" prefWidth="75.0" text="History" />
+                     </columns>
+                  </TableView>
+                  <Pane fx:id="pageCréerAsso1" layoutX="1020.0" layoutY="53.0" prefHeight="483.0" prefWidth="167.0" style="-fx-background-color: grey;">
+                     <children>
+                        <Button fx:id="boutonValider1" layoutX="48.0" layoutY="230.0" mnemonicParsing="false" onAction="#handleValider1" text="Validé ?" />
+                        <Label fx:id="labelListe1" graphicTextGap="2.0" layoutX="12.0" layoutY="14.0" prefHeight="172.0" prefWidth="144.0" textAlignment="JUSTIFY" textFill="WHITE">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children></Pane>
+                  <Button fx:id="boutonParamètre" alignment="CENTER" layoutX="1006.0" layoutY="8.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="156.0" text="Paramètre ⚙️">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <CheckBox fx:id="checkBox1" layoutX="993.0" layoutY="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="21.0" />
+                  <CheckBox fx:id="checkBox2" layoutX="993.0" layoutY="102.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="21.0" />
+                  <CheckBox fx:id="checkBox4" layoutX="993.0" layoutY="150.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="21.0" />
+                  <CheckBox fx:id="checkBox3" layoutX="993.0" layoutY="126.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="21.0" />
+                  <CheckBox fx:id="checkBox5" layoutX="993.0" layoutY="173.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="21.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="pagePaires" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a4a4a4" height="521.0" layoutX="12.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="1174.0" />
+                  <TableView fx:id="tableViewPaires" layoutX="20.0" layoutY="58.0" prefHeight="473.0" prefWidth="1151.0">
+                    <columns>
+                      <TableColumn fx:id="colAdo1" prefWidth="421.0" text="Ado 1" />
+                      <TableColumn fx:id="colAdo2" prefWidth="463.0" text="Ado 2" />
+                        <TableColumn fx:id="colScore" prefWidth="220.0" text="Score" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="boutonDesister" layoutX="20.0" layoutY="28.0" mnemonicParsing="false" text="Désister" />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+</VBox>
