@@ -1,0 +1,35 @@
+Début du jeu :
+
+Le joueur choisit un pseudo.
+Le jeu commence avec le joueur et un adversaire ayant chacun 100 points de vie (HP).
+
+Tour de jeu :
+
+Le joueur et l'adversaire attaquent chacun leur tour.
+Le joueur doit répondre à une question mathématique pour infliger des dégâts à l'adversaire.
+La difficulté de la question peut être choisie par le joueur (niveau 1 à 4).
+
+Calcul des dégâts :
+
+Si la réponse est correcte, des dégâts sont infligés à l'adversaire.
+Les dégâts augmentent avec la difficulté de la question et le niveau du joueur.
+Si la réponse est incorrecte, aucun dégât n'est infligé.
+
+Attaque de l'adversaire :
+
+L'adversaire a 40% de chances d'attaquer le joueur.
+Les dégâts de l'adversaire augmentent avec le niveau du joueur.
+Fin de manche :
+
+Si l'adversaire est vaincu, le joueur gagne un point, passe au niveau suivant, et un nouvel adversaire est généré.
+Si le joueur est vaincu, le jeu se termine et le score final est affiché.
+
+Les scores sont sauvegardés dans un fichier CSV et peuvent être consultés depuis le menu principal.
+
+Amusez-vous bien !
+
+
+
+
+
+(tapez 1 pour retourner au menu)
