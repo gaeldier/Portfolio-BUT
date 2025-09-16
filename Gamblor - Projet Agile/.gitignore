@@ -1,0 +1,5 @@
+doc/
+bin/
+.vscode/ltex.*.txt
+**/*.class
+.vscode/settings.json
