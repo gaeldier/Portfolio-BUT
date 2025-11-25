@@ -1,0 +1,198 @@
+@startuml
+package modele {
+  abstract class AbstractPlateau {
+    # distanceEntreeSortie : int
+    # entree : Cases
+    # plateau : boolean[][]
+    # sortie : Cases
+    + AbstractPlateau()
+    # caseMarquer(casesMarquee : List<Cases>, c : Cases) : boolean
+    + enleverMurEntreeSortie()
+    + estEntree(c : Cases) : boolean
+    + estMur(c : Cases) : boolean
+    + estSortie(c : Cases) : boolean
+    + getDistanceEntreeSortie() : int
+    + getEntree() : Cases
+    + getNbColonne() : int
+    + getNbLigne() : int
+    + getSortie() : Cases
+    # notInBounds(c : Cases) : boolean
+    # placerEntree()
+    # placerSortie(distanceMin : int)
+    + resetPlateau()
+    + setMur(c : Cases)
+    # voisinsPossibles(c : Cases, casesMarquee : List<Cases>) : List<Cases>
+  }
+  class Cases {
+    - x : int
+    - y : int
+    + Cases(x : int, y : int)
+    + equals(o : Object) : boolean
+    + getX() : int
+    + getY() : int
+    + hashCode() : int
+    + setX(x : int)
+    + setY(y : int)
+  }
+
+  class Joueur {
+    - niveaux : List<Niveau>
+    - nom : String
+    - score : int
+    - serialVersionUID : long {static}
+    + Joueur(n : String, sc : int, nbNiveau : int)
+    + equals(o : Object) : boolean
+    + getNom() : String
+    + getScore() : int
+    + getlistNiveau() : List<Niveau>
+    + hashCode() : int
+    + niveauEffectue(niveau : int, difficultee : String)
+    - setNewScore()
+    + setNom(name : String)
+    + setScore(niveau : int, sc : int, difficulte : String)
+  }
+  class Labyrinthe {
+    # observers : List<Observers>
+    - oldPosJoueur : Cases
+    - plateau : AbstractPlateau
+    - posJoueur : Cases
+    + Labyrinthe(nbLigne : int, nbColonne : int, distanceMin : int)
+    + Labyrinthe(nbLigne : int, nbColonne : int, distanceMin : int, orientation : Orientation)
+    + Labyrinthe(nbLigne : int, nbColonne : int, pMur : double)
+    + aGagner() : boolean
+    + addObserver(o : Observers)
+    # creerLabyrintheAleatoire(nbLigne : int, nbColonne : int, difficulte : double)
+    # creerLabyrintheBinaryTree(nbLigne : int, nbColonne : int, distanceMin : int, orientation : Orientation)
+    # creerLabyrintheParfait(nbLigne : int, nbColonne : int, distanceMin : int)
+    + deplacementJoueur(direction : Direction)
+    + estBordure(c : Cases) : boolean
+    + estEntree(c : Cases) : boolean
+    + estJoueur(c : Cases) : boolean
+    + estMur(c : Cases) : boolean
+    + estSortie(c : Cases) : boolean
+    + getDistanceEntreeSortie() : int
+    + getEntree() : Cases
+    + getNbColonne() : int
+    + getNbLigne() : int
+    + getOldPosJoueur() : Cases
+    + getPlateau() : AbstractPlateau
+    + getPosJoueur() : Cases
+    + getSortie() : Cases
+    # notifyObservers()
+    + removeObserver(o : Observers)
+  }
+
+  class ListeJoueursSerializable {
+    - listeJoueurs : Set<Joueur>
+    - serialVersionUID : long {static}
+    + ListeJoueursSerializable()
+    + add(j : Joueur)
+    + getAllPseudo() : Set<String>
+    + getListJoueur() : Set<Joueur>
+    + getListeJoueurs() : Set<Joueur>
+  }
+  class ModeLibre {
+    + ModeLibre(nbLigne : int, nbColonne : int, dif : int, generation : String, orientation : Orientation)
+  }
+  class ModeProgression {
+    + mpl : ModeProgressionLoader {static}
+    + ModeProgression(niveau : int, difficulte : String)
+  }
+  class ModeProgressionLoader {
+    + PATH : String
+    - niveauxDifficile : List<Integer>
+    - niveauxFacile : List<Integer>
+    - niveauxMoyen : List<Integer>
+    - niveauxNbColonne : List<Integer>
+    - niveauxNbLigne : List<Integer>
+    + ModeProgressionLoader()
+    + getDifficulte(niveau : int, difficulte : String) : int
+    + getNbColonnes(niveau : int) : int
+    + getNbLignes(niveau : int) : int
+    + getNbNiveau() : int
+    - rangerDonnee(donneeNiveau : String[])
+  }
+  class Niveau {
+    - counter : int {static}
+    - difficulteFaite : boolean[]
+    - num : int
+    - peutEtreFait : boolean
+    - scoreDifficulte : int[]
+    - serialVersionUID : long {static}
+    + Niveau()
+    + estFait() : boolean
+    + getDifficulteFaite(difficulte : int) : boolean
+    + getNumNiveau() : int
+    + getScoreNiveau() : int
+    + isDifficileFait() : boolean
+    + isFacileFait() : boolean
+    + isMoyenFait() : boolean
+    + peutEtreFais() : boolean
+    + resetCounter() {static}
+    + setDifficulteFaite(difficulte : int, fait : boolean)
+    + setDifficulteeFaite(difficultee : String)
+    + setPeutEtreFait(b : Boolean)
+    + setScoreNiveau(score : int, difficulte : String)
+  }
+  class Noeuds {
+    - c : Cases
+    - distance : int
+    + Noeuds(c : Cases, distance : int)
+    + getCase() : Cases
+    + getDistance() : int
+  }
+  enum Orientation {
+    + NORD_EST {static}
+    + NORD_OUEST {static}
+    + SUD_EST {static}
+    + SUD_OUEST {static}
+    + dx1 : int
+    + dx2 : int
+    + dy1 : int
+    + dy2 : int
+    + valueOf(String) : Orientation {static}
+    + values() : Orientation[] {static}
+  }
+  class PlateauAleatoire {
+    - rand : Random
+    - PlateauAleatoire(ligne : int, colonne : int)
+    - genererCheminAleatoire(nbLigne : int, nbColonne : int) : Set<Cases>
+    + genererLabyrinthe(ligne : int, colonne : int, pourcentage : double) : PlateauAleatoire {static}
+    + placerMur(pourcentage : double, chemin : Set<Cases>)
+    - remplirMur(chemin : Set<Cases>)
+    - setDistanceEntreeSortie()
+    - shuffleEntreeSortie()
+  }
+  class PlateauBinaryTree {
+    - orientation : Orientation
+    - rand : Random
+    + PlateauBinaryTree(ligne : int, colonne : int, orientation : Orientation)
+    - generateBinaryTree()
+    + genererLabyrinthe(ligne : int, colonne : int, distanceMin : int, orientation : Orientation) : PlateauBinaryTree {static}
+    - ouvrir(x : int, y : int, dx : int, dy : int)
+    - peutCreuser(x : int, y : int, dx : int, dy : int) : boolean
+  }
+  class PlateauParfait {
+    - DIRS : int[][] {static}
+    - rand : Random
+    + PlateauParfait(ligne : int, colonne : int)
+    - carve(x : int, y : int)
+    - generateDFS()
+    + genererLabyrinthe(ligne : int, colonne : int, distanceMin : int) : PlateauParfait {static}
+    - shuffle(array : int[])
+  }
+}
+AbstractPlateau -->  "-entree" Cases
+Labyrinthe -->  "-plateau" AbstractPlateau
+PlateauBinaryTree -->  "-orientation" Orientation
+Labyrinthe -->  "-posJoueur" Cases
+ModeProgression -->  "-mpl" ModeProgressionLoader
+Noeuds -->  "-c" Cases
+ListeJoueursSerializable -->  "-listeJoueurs" Joueur
+Joueur -->  "-niveaux" Niveau
+ModeLibre --|> Labyrinthe 
+ModeProgression --|> Labyrinthe 
+PlateauAleatoire --|> AbstractPlateau 
+PlateauBinaryTree --|> AbstractPlateau 
+PlateauParfait --|> AbstractPlateau 
+@enduml

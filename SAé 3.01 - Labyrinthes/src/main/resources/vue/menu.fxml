@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.AccueilControleur">
+    <StackPane layoutX="870.0" layoutY="483.0" style="-fx-background-color: linear-gradient(to right, rgba(65,66,92,0) 0%, rgba(65,66,92,1) 100%);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="TOP_RIGHT" spacing="50.0">
+            <StackPane.margin>
+                <Insets right="50.0" />
+            </StackPane.margin>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="IUT'ERRAIN">
+                <font>
+                    <Font size="150.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="50.0" top="100.0" />
+                </VBox.margin>
+            </Text>
+            <Text fill="WHITE" onMouseClicked="#reprendrePartie" onMouseEntered="#enlargeText" onMouseExited="#resetText" strokeType="OUTSIDE" strokeWidth="0.0" text="Continuer">
+                <font>
+                    <Font size="50.0" />
+                </font>
+            </Text>
+            <Text fill="WHITE" onMouseClicked="#nouveauJoueur" onMouseEntered="#enlargeText" onMouseExited="#resetText" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouvelle partie">
+                <font>
+                    <Font size="50.0" />
+                </font>
+            </Text>
+            <Text fill="WHITE" onMouseClicked="#allerVersJeuLibre" onMouseEntered="#enlargeText" onMouseExited="#resetText" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeu libre">
+                <font>
+                    <Font size="50.0" />
+                </font>
+            </Text>
+            <Text fill="WHITE" onMouseClicked="#quitter" onMouseEntered="#enlargeText" onMouseExited="#resetText" strokeType="OUTSIDE" strokeWidth="0.0" text="Quitter">
+                <font>
+                    <Font size="50.0" />
+                </font>
+            </Text>
+        </VBox>
+    </StackPane>
+</AnchorPane>

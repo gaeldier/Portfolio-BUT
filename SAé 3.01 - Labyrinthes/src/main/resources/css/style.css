@@ -1,0 +1,45 @@
+.toggle-switch {
+    -fx-background-radius: 20;
+    -fx-min-width: 50px;
+    -fx-max-width: 50px;
+    -fx-min-height: 20px;
+    -fx-max-height: 20px;
+    -fx-padding: 0;
+
+    -fx-text-fill: transparent;
+    -fx-graphic: null;
+
+    -fx-background-transition: 0.25s;
+    -fx-padding-transition: 0.25s;
+    -fx-background-color-transition: 0.25s;
+
+    -fx-effect: innershadow(
+            three-pass-box,
+            #0000004d,
+            10, 0.0, 0, 3
+    );
+}
+
+.toggle-switch:selected{
+    -fx-background-color: #72dca2;
+}
+
+.switch-thumb {
+    -fx-min-width: 20px;
+    -fx-max-width: 20px;
+    -fx-min-height: 16px;
+    -fx-max-height: 16px;
+
+    -fx-background-radius: 50;
+
+    -fx-background-color: linear-gradient(#FFF, #f2f2f2);
+    -fx-translate-x: -13px;
+
+    -fx-background-transition: 0.25s;
+    -fx-translate-transition: 0.25s;
+}
+
+.toggle-switch:selected .switch-thumb {
+    -fx-translate-x: 13px;
+}
+

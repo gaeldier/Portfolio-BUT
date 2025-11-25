@@ -1,0 +1,7 @@
+.idea/
+*.class
+.DS_Store
+.vscode/
+/pom.xml
+Labyrinthes.iml
+target/

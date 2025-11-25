@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="conteneurPrincipale" style="-fx-background-color: #41425C;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+    <StackPane layoutX="200.0" layoutY="125.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox fx:id="conteneur" alignment="CENTER" StackPane.alignment="CENTER" />
+    </StackPane>
+    <Button mnemonicParsing="false" onMouseClicked="#retour" onMouseEntered="#assombrirButton" onMouseExited="#resetButton" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #41425C; -fx-border-color: #6f6d6d; -fx-border-radius: 20; -fx-border-width: 2;" text="Retour" textFill="#6f6d6d" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <font>
+            <Font size="30.0" />
+        </font>
+    </Button>
+</AnchorPane>
