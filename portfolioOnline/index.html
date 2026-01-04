@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MonPortfolio.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 id="fancyboi">Bonjour, je suis <span class="highlight">Gaël !!</span></h1>
+            <h1 id="fancyboi">Administrateur système, développeur</h2>
+            <p>Je conçois des expériences numériques modernes et interactives.</p>
+            <a href="#projects" class="btn">Voir mes travaux</a>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Passionné par le code et le design, j'aide les entreprises à transformer leurs idées en réalité numérique. J'aime résoudre des problèmes complexes avec des solutions simples.</p>
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-padding bg-dark">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="card-image" style="background-color: #333;"></div> <div class="card-info">
+                        <h3>Site E-commerce</h3>
+                        <p>Une boutique en ligne complète avec panier et paiement.</p>
+                        <a href="#" class="btn-small">Voir le code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-image" style="background-color: #444;"></div>
+                    <div class="card-info">
+                        <h3>Dashboard Analytics</h3>
+                        <p>Interface d'administration pour visualiser des données.</p>
+                        <a href="#" class="btn-small">Voir le code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-image" style="background-color: #555;"></div>
+                    <div class="card-info">
+                        <h3>App Météo</h3>
+                        <p>Application utilisant une API externe pour la météo.</p>
+                        <a href="#" class="btn-small">Voir le code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Me Contacter</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Votre Nom" required>
+                <input type="email" placeholder="Votre Email" required>
+                <textarea rows="5" placeholder="Votre Message" required></textarea>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+            <div class="socials">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MonPortfolio. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

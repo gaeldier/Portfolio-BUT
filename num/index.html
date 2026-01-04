@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaël's Portfolio [Win98]</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <div class="window win98-container">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-0.png" class="title-icon" alt="icon">
+                Portfolio de Gaël - Microsoft Internet Explorer
+            </div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize">_</button>
+                <button aria-label="Maximize">□</button>
+                <button aria-label="Close" class="close-btn">X</button>
+            </div>
+        </div>
+
+        <div class="menu-bar">
+            <ul class="menu-links">
+                <li><a href="#home"><u>A</u>ccueil</a></li>
+                <li><a href="#about"><u>Q</u>ui suis-je ?</a></li>
+                <li><a href="#projects"><u>M</u>es projets</a></li>
+                <li><a href="#contact"><u>C</u>ontact</a></li>
+            </ul>
+        </div>
+
+        <div class="window-body scrollable-content">
+            
+            <section id="home" class="win-section">
+                <div class="fieldset-look">
+                    <legend>Bienvenue</legend>
+                    <h1>Bonjour, je suis Gaël Dierynck</h1>
+                    <h2 class="typing-text">Étudiant en BUT Informatique - II Année .</h2>
+                    <p>Ceci est mon portfolio personnel version 1998.</p>
+                    <a href="#projects" class="win98-btn">Voir mes travaux...</a>
+                </div>
+            </section>
+
+            <section id="about" class="win-section">
+                 <h2 class="win-heading">Propriétés Système (À propos)</h2>
+                 <div class="about-layout">
+                     <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" alt="User computer" class="pixel-img">
+                     <div>
+                        <p>Passionné par le code. J'aide les entreprises à transformer leurs idées en réalité numérique (compatible Netscape Navigator 4.0).</p>
+                        <div class="skills-panel plain-panel">
+                            <p>Compétences installées :</p>
+                            <ul>
+                                <li>[x] HTML5</li>
+                                <li>[x] CSS3 (Retro)</li>
+                                <li>[x] JavaScript</li>
+                                <li>[ ] Java Applets</li>
+                            </ul>
+                        </div>
+                     </div>
+                 </div>
+            </section>
+
+            <section id="projects" class="win-section">
+                <h2 class="win-heading">Mes Documents/Projets</h2>
+                <div class="projects-grid">
+                    <div class="window plain-panel project-card">
+                        <div class="title-bar inactive-title-bar">
+                            <div class="title-bar-text">site_ecommerce.exe</div>
+                        </div>
+                        <div class="window-body card-content">
+                            <img src="https://win98icons.alexmeub.com/icons/png/html-1.png" alt="html icon">
+                            <h3>Boutique en ligne</h3>
+                            <p>Une boutique complète avec panier.</p>
+                            <button class="win98-btn">Exécuter le code</button>
+                        </div>
+                    </div>
+                    <div class="window plain-panel project-card">
+                        <div class="title-bar inactive-title-bar">
+                            <div class="title-bar-text">dashboard.xls</div>
+                        </div>
+                        <div class="window-body card-content">
+                             <img src="https://win98icons.alexmeub.com/icons/png/chart1-4.png" alt="chart icon">
+                            <h3>Dashboard Analytics</h3>
+                            <p>Visualisation de données.</p>
+                            <button class="win98-btn">Ouvrir</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="win-section last-section">
+                <h2 class="win-heading">Assistant Courrier Internet</h2>
+                <form class="contact-form fieldset-look">
+                    <legend>Nouveau Message</legend>
+                    <div class="form-group">
+                        <label for="name">De :</label>
+                        <input type="text" id="name" class="win-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Objet :</label>
+                        <input type="email" id="email" class="win-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message :</label>
+                        <textarea id="message" rows="5" class="win-input win-textarea"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="win98-btn">Envoyer</button>
+                        <button type="button" class="win98-btn">Annuler</button>
+                    </div>
+                </form>
+            </section>
+            
+             <footer class="plain-panel status-bar">
+                <p>Prêt. © 1998-2024 Gel-Corp❄️.</p>
+            </footer>
+
+        </div> </div> <div class="taskbar">
+        <button class="start-btn">
+            <img src="https://win98icons.alexmeub.com/icons/png/windows_slanted-1.png" alt="win logo">
+            Démarrer
+        </button>
+        <div class="taskbar-divider"></div>
+        <div class="task-item active-task">
+             <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-0.png" alt="icon">
+             Portfolio de Gaël - Microsoft Internet Explorer
+        </div>
+        <div class="tray-area">
+            <img src="https://win98icons.alexmeub.com/icons/png/audio_loudspeaker-0.png" class="tray-icon" alt="sound">
+             <span class="time">10:42 AM</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
