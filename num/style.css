@@ -1,42 +1,29 @@
 /* Palette de couleurs officielle Win98 */
 :root {
-    --win-teal: #008080;
-    /* Couleur du bureau */
-    --win-gray: #c0c0c0;
-    /* Couleur principale des fenêtres */
-    --win-dark-gray: #808080;
-    /* Ombres intermédiaires */
-    --win-black: #000000;
-    /* Ombres profondes et texte */
-    --win-white: #ffffff;
-    /* Hautes lumières */
-    --win-blue-title: #000080;
-    /* Barre de titre active */
-    --win-light-gray: #dfdfdf;
-    /* Lumière intermédiaire */
+    --win-teal: #008080; /* Couleur du bureau */
+    --win-gray: #c0c0c0; /* Couleur principale des fenêtres */
+    --win-dark-gray: #808080; /* Ombres intermédiaires */
+    --win-black: #000000; /* Ombres profondes et texte */
+    --win-white: #ffffff; /* Hautes lumières */
+    --win-blue-title: #000080; /* Barre de titre active */
+    --win-light-gray: #dfdfdf; /* Lumière intermédiaire */
     --font-win: 'Tahoma', 'Verdana', sans-serif;
 }
 
 legend {
-    /*en gras, grand et rainbow qui bouge tout seul*/
     font-weight: bold;
     font-size: 16px;
-    background: linear-gradient(90deg, red, orange, yellow, green, blue,
-
-            indigo, violet);
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
     -webkit-text-fill-color: transparent;
     animation: rainbow 5s linear infinite;
-
     background-clip: text;
     -webkit-background-clip: text;
-
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Désactive le lissage des polices pour un look plus rétro/pixelisé */
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -45,18 +32,51 @@ body {
     background-color: var(--win-teal);
     font-family: var(--font-win);
     font-size: 13px;
-    /* Taille standard Win98 */
     color: var(--win-black);
     height: 100vh;
     overflow: hidden;
-    /* Le scroll se fera dans la "fenêtre" */
-    padding: 20px;
-    padding-bottom: 50px;
-    /* Espace pour la barre des tâches */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Modification pour le bureau : plus de flex center */
+    position: relative; 
 }
+
+/* --- Style du Bureau et des Icônes --- */
+.desktop-icons {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+    text-align: center;
+    color: var(--win-white);
+    cursor: default;
+}
+
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+}
+
+.desktop-icon span {
+    font-size: 12px;
+    text-shadow: 1px 1px var(--win-black); /* Ombre portée pour la lisibilité sur fond teal */
+    padding: 2px;
+}
+
+.desktop-icon:active span {
+    background-color: var(--win-blue-title);
+    outline: 1px dotted var(--win-gray);
+}
+
 
 /* --- LE COEUR DU STYLE WIN98 : LES BORDURES --- */
 /* Mixin pour l'effet "bouton sorti" (Raised) */
@@ -64,9 +84,11 @@ body {
 .win98-btn,
 .taskbar,
 .start-btn,
-.task-item {
+.task-item,
+.toolbar,
+.address-bar,
+.toolbar-button {
     background-color: var(--win-gray);
-    /* L'astuce double bordure pour la profondeur 98 */
     border-top: 1px solid var(--win-light-gray);
     border-left: 1px solid var(--win-light-gray);
     border-right: 1px solid var(--win-black);
@@ -77,7 +99,8 @@ body {
 /* Mixin pour l'effet "enfoncé" (Sunken) - inputs, zones de contenu */
 .window-body,
 .win-input,
-.plain-panel {
+.plain-panel,
+.address-input-wrapper {
     border-top: 1px solid var(--win-dark-gray);
     border-left: 1px solid var(--win-dark-gray);
     border-right: 1px solid var(--win-white);
@@ -88,12 +111,17 @@ body {
 
 /* --- Structure de la fenêtre principale --- */
 .win98-container {
-    width: 95%;          /* Passe de 100% à 95% pour laisser une marge sur les côtés */
-    max-width: 1200px;   /* C'est ici qu'on élargit (avant c'était 800px) */
-    height: 90vh;
+    /* Positionnement sur le bureau */
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    width: 80%;
+    max-width: 1024px;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     padding: 2px;
+    z-index: 10;
 }
 
 /* Barre de titre bleue */
@@ -142,11 +170,16 @@ body {
     font-size: 11px !important;
 }
 
+/* --- Interface Internet Explorer --- */
+
 /* Barre de menu (File, Edit...) */
 .menu-bar {
     background-color: var(--win-gray);
     padding: 2px 5px;
     border-bottom: 1px solid var(--win-dark-gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .menu-links {
@@ -154,30 +187,167 @@ body {
     display: flex;
 }
 
-.menu-links li a {
-    text-decoration: none;
-    color: var(--win-black);
+.menu-links li {
     padding: 2px 8px;
     border: 1px solid transparent;
+    cursor: default;
 }
 
-.menu-links li a:hover {
+.menu-links li:hover {
     border-top: 1px solid var(--win-light-gray);
     border-left: 1px solid var(--win-light-gray);
     border-right: 1px solid var(--win-dark-gray);
     border-bottom: 1px solid var(--win-dark-gray);
 }
 
-/* Zone de contenu scrollable */
-.scrollable-content {
-    flex: 1;
-    overflow-y: auto;
-    padding: 15px;
-    background-color: var(--win-gray) !important;
-    /* Le fond interne est gris */
-    border: none !important;
-    /* On enlève le bord sunken ici, on le met sur les éléments internes */
+.menu-logo-ie img {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    border: 1px solid transparent;
+}
+
+/* Barre d'outils (Toolbar) */
+.toolbar {
+    display: flex;
+    align-items: center;
+    padding: 2px 5px;
+    gap: 2px;
+    border: none !important; /* On enlève les bords de base, le .plain-panel les gère */
     box-shadow: none !important;
+}
+
+.toolbar-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 5px;
+    min-width: 50px;
+    border: 1px solid transparent;
+    box-shadow: none !important;
+    border: none !important;
+    cursor: default;
+}
+
+.toolbar-button:hover:not(.disabled) {
+    border-top: 1px solid var(--win-light-gray) !important;
+    border-left: 1px solid var(--win-light-gray) !important;
+    border-right: 1px solid var(--win-black) !important;
+    border-bottom: 1px solid var(--win-black) !important;
+    box-shadow: inset 1px 1px 0px var(--win-white), inset -1px -1px 0px var(--win-dark-gray) !important;
+}
+.toolbar-button:active:not(.disabled) {
+    border-top: 1px solid var(--win-black) !important;
+    border-left: 1px solid var(--win-black) !important;
+    border-right: 1px solid var(--win-light-gray) !important;
+    border-bottom: 1px solid var(--win-light-gray) !important;
+    box-shadow: inset 1px 1px 0px var(--win-dark-gray), inset -1px -1px 0px var(--win-white) !important;
+    padding: 3px 4px 1px 6px !important; /* Décalage */
+}
+
+
+.toolbar-button img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 2px;
+}
+
+.toolbar-button span {
+    font-size: 11px;
+}
+
+.toolbar-button.disabled {
+    color: var(--win-dark-gray);
+}
+.toolbar-button.disabled img {
+    filter: grayscale(100%) opacity(50%);
+}
+
+.toolbar-separator {
+    width: 2px;
+    height: 36px;
+    margin: 0 4px;
+    border-left: 1px solid var(--win-dark-gray);
+    border-right: 1px solid var(--win-white);
+}
+
+/* Barre d'adresse */
+.address-bar {
+    display: flex;
+    align-items: center;
+    padding: 4px 5px;
+    gap: 5px;
+    border: none !important;
+    box-shadow: none !important;
+    border-top: 1px solid var(--win-white) !important; /* Petit séparateur blanc */
+}
+
+.address-bar label {
+    font-size: 11px;
+}
+
+.address-input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 1px 2px;
+    background-color: var(--win-white);
+}
+
+.address-input-wrapper img {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.address-input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: var(--font-win);
+    font-size: 12px;
+}
+
+.address-dropdown-btn {
+    width: 16px;
+    height: 16px;
+    background-color: var(--win-gray);
+    border-top: 1px solid var(--win-light-gray);
+    border-left: 1px solid var(--win-light-gray);
+    border-right: 1px solid var(--win-black);
+    border-bottom: 1px solid var(--win-black);
+    box-shadow: inset 1px 1px 0px var(--win-white), inset -1px -1px 0px var(--win-dark-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    cursor: default;
+}
+
+/* Zone de contenu IE */
+.ie-content {
+    background-color: var(--win-white) !important; /* Fond blanc pour la page web */
+    border-top: 1px solid var(--win-black) !important; /* Bordure noire épaisse en haut */
+    border-left: 1px solid var(--win-dark-gray) !important;
+    padding: 0 !important; /* On gère le padding dans les sections */
+}
+
+/* Navigation interne dans la page */
+.internal-nav {
+    padding: 10px;
+    background-color: var(--win-gray);
+    border-bottom: 1px solid var(--win-dark-gray);
+    display: flex;
+    gap: 10px;
+}
+
+/* Ajustements pour le contenu à l'intérieur de la zone blanche */
+.ie-content .win-section, .ie-content footer {
+    padding: 20px;
+    margin-bottom: 0;
+}
+.ie-content .win-section:not(:last-child) {
+    border-bottom: 1px solid var(--win-light-gray);
 }
 
 /* Scrollbar rétro (fonctionne surtout sur Chrome/Edge) */
@@ -355,7 +525,7 @@ legend {
 
 /* Status Bar (footer de la fenêtre) */
 .status-bar {
-    margin: 0 -15px -15px -15px;
+    margin: 0; /* Reset margin pour l'intérieur de IE */
     padding: 2px 5px;
     background: var(--win-gray);
     border-top: 1px solid var(--win-light-gray);
@@ -447,20 +617,25 @@ legend {
 
 /* Responsive rapide */
 @media screen and (max-width: 600px) {
-    body {
-        padding: 5px;
-        padding-bottom: 40px;
-    }
-
     .win98-container {
-        height: 95vh;
+        width: 95%;
+        left: 2.5%;
+        top: 10px;
+        height: 85vh;
+    }
+    .desktop-icons {
+        display: none; /* Cache les icônes sur mobile pour la place */
+    }
+    .menu-bar, .toolbar, .address-bar {
+        display: none; /* Cache les barres IE sur mobile */
+    }
+    /* Réaffiche la navigation interne pour le mobile */
+    .internal-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .menu-bar {
-        display: none;
-    }
-
-    /* Trop petit sur mobile */
     .form-group {
         flex-direction: column;
         align-items: flex-start;

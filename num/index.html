@@ -5,14 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaël's Portfolio [Win98]</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
 
-    <div class="window win98-container">
+    <div class="desktop-icons">
+        <div class="desktop-icon">
+            <img src="./win98_icons/windows98-icons/png/computer_explorer-2.png" alt="Poste de travail">
+            <span>Poste de travail</span>
+        </div>
+        <div class="desktop-icon">
+            <img src="./win98_icons/windows98-icons/png/directory_open-3.png" alt="Mes documents">
+            <span>Mes documents</span>
+        </div>
+        <div class="desktop-icon">
+            <img src="./win98_icons/windows98-icons/png/msie1-2.png" alt="Internet Explorer">
+            <span>Internet Explorer</span>
+        </div>
+        <div class="desktop-icon">
+            <img src="./win98_icons/windows98-icons/png/network_cool-2.png" alt="Voisinage réseau">
+            <span>Voisinage réseau</span>
+        </div>
+        <div class="desktop-icon">
+            <img src="./win98_icons/windows98-icons/png/recycle_bin_full-4.png" alt="Corbeille">
+            <span>Corbeille</span>
+        </div>
+    </div>
+
+    <div class="window win98-container ie-window">
         <div class="title-bar">
             <div class="title-bar-text">
-                <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-0.png" class="title-icon" alt="icon">
+                <img src="./win98_icons/windows98-icons/png/msie1-2.png" class="title-icon" alt="icon">
                 Portfolio de Gaël - Microsoft Internet Explorer
             </div>
             <div class="title-bar-controls">
@@ -24,15 +46,73 @@
 
         <div class="menu-bar">
             <ul class="menu-links">
-                <li><a href="#home"><u>A</u>ccueil</a></li>
-                <li><a href="#about"><u>Q</u>ui suis-je ?</a></li>
-                <li><a href="#projects"><u>M</u>es projets</a></li>
-                <li><a href="#contact"><u>C</u>ontact</a></li>
+                <li>Fichier</li>
+                <li>Édition</li>
+                <li>Affichage</li>
+                <li>Aller à</li>
+                <li>Favoris</li>
+                <li>Aide</li>
             </ul>
+            <div class="menu-logo-ie">
+                <img src="./win98_icons/windows98-icons/png/msie1-2.png" alt="IE Logo">
+            </div>
         </div>
 
-        <div class="window-body scrollable-content">
+        <div class="toolbar plain-panel">
+            <div class="toolbar-button disabled">
+                <img src="./win98_icons/windows98-icons/png/arrow_left-2.png" alt="Précédent">
+                <span>Précédent</span>
+            </div>
+            <div class="toolbar-button disabled">
+                <img src="./win98_icons/windows98-icons/png/arrow_right-2.png" alt="Suivant">
+                <span>Suivant</span>
+            </div>
+            <div class="toolbar-separator"></div>
+            <div class="toolbar-button">
+                <img src="./win98_icons/windows98-icons/png/stop-2.png" alt="Arrêter">
+                <span>Arrêter</span>
+            </div>
+            <div class="toolbar-button">
+                <img src="./win98_icons/windows98-icons/png/refresh-3.png" alt="Actualiser">
+                <span>Actualiser</span>
+            </div>
+            <div class="toolbar-button">
+                <img src="./win98_icons/windows98-icons/png/home-2.png" alt="Démarrage">
+                <span>Démarrage</span>
+            </div>
+            <div class="toolbar-separator"></div>
+            <div class="toolbar-button">
+                <img src="./win98_icons/windows98-icons/png/search-2.png" alt="Recherche">
+                <span>Recherche</span>
+            </div>
+            <div class="toolbar-button">
+                <img src="./win98_icons/windows98-icons/png/favorites-2.png" alt="Favoris">
+                <span>Favoris</span>
+            </div>
+            <div class="toolbar-button">
+                <img src="./win98_icons/windows98-icons/png/history-2.png" alt="Historique">
+                <span>Historique</span>
+            </div>
+        </div>
+
+        <div class="address-bar plain-panel">
+            <label for="address-input">Adresse</label>
+            <div class="address-input-wrapper win-input">
+                <img src="./win98_icons/windows98-icons/png/html-2.png" alt="URL icon">
+                <input type="text" id="address-input" value="http://portfolio-gael.com/" readonly>
+                <div class="address-dropdown-btn">▼</div>
+            </div>
+        </div>
+
+        <div class="window-body scrollable-content ie-content">
             
+            <div class="internal-nav">
+                <a href="#home" class="win98-btn">Accueil</a>
+                <a href="#about" class="win98-btn">Qui suis-je ?</a>
+                <a href="#projects" class="win98-btn">Mes projets</a>
+                <a href="#contact" class="win98-btn">Contact</a>
+            </div>
+
             <section id="home" class="win-section">
                 <div class="fieldset-look">
                     <legend>Bienvenue</legend>
@@ -46,7 +126,7 @@
             <section id="about" class="win-section">
                  <h2 class="win-heading">Propriétés Système (À propos)</h2>
                  <div class="about-layout">
-                     <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" alt="User computer" class="pixel-img">
+                     <img src="./win98_icons/windows98-icons/png/user_computer-0.png" alt="User computer" class="pixel-img">
                      <div>
                         <p>Passionné par le code. J'aide les entreprises à transformer leurs idées en réalité numérique (compatible Netscape Navigator 4.0).</p>
                         <div class="skills-panel plain-panel">
@@ -70,7 +150,7 @@
                             <div class="title-bar-text">site_ecommerce.exe</div>
                         </div>
                         <div class="window-body card-content">
-                            <img src="https://win98icons.alexmeub.com/icons/png/html-1.png" alt="html icon">
+                            <img src="./win98_icons/windows98-icons/png/html-1.png" alt="html icon">
                             <h3>Boutique en ligne</h3>
                             <p>Une boutique complète avec panier.</p>
                             <button class="win98-btn">Exécuter le code</button>
@@ -81,7 +161,7 @@
                             <div class="title-bar-text">dashboard.xls</div>
                         </div>
                         <div class="window-body card-content">
-                             <img src="https://win98icons.alexmeub.com/icons/png/chart1-4.png" alt="chart icon">
+                             <img src="./win98_icons/windows98-icons/png/chart1-4.png" alt="chart icon">
                             <h3>Dashboard Analytics</h3>
                             <p>Visualisation de données.</p>
                             <button class="win98-btn">Ouvrir</button>
@@ -117,18 +197,21 @@
                 <p>Prêt. © 1998-2024 Gel-Corp❄️.</p>
             </footer>
 
-        </div> </div> <div class="taskbar">
+        </div>
+    </div>
+
+    <div class="taskbar">
         <button class="start-btn">
-            <img src="https://win98icons.alexmeub.com/icons/png/windows_slanted-1.png" alt="win logo">
+            <img src="./win98_icons/windows98-icons/png/windows_slanted-1.png" alt="win logo">
             Démarrer
         </button>
         <div class="taskbar-divider"></div>
         <div class="task-item active-task">
-             <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-0.png" alt="icon">
+             <img src="./win98_icons/windows98-icons/png/msie1-2.png" alt="icon">
              Portfolio de Gaël - Microsoft Internet Explorer
         </div>
         <div class="tray-area">
-            <img src="https://win98icons.alexmeub.com/icons/png/audio_loudspeaker-0.png" class="tray-icon" alt="sound">
+            <img src="./win98_icons/windows98-icons/png/audio_loudspeaker-0.png" class="tray-icon" alt="sound">
              <span class="time">10:42 AM</span>
         </div>
     </div>
