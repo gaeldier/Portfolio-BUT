@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaël's Portfolio [Win98]</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="desktop-icons">
@@ -60,33 +62,33 @@
 
         <div class="toolbar plain-panel">
             <div class="toolbar-button disabled">
-                <img src="https://win98icons.alexmeub.com/icons/png/arrow_left-2.png" alt="Précédent">
+                <img src="./win98_icons/windows98-icons/png/arrow_left-2.png" alt="Précédent">
                 <span>Précédent</span>
             </div>
             <div class="toolbar-button disabled">
-                <img src="https://win98icons.alexmeub.com/icons/png/arrow_right-2.png" alt="Suivant">
+                <img src="./win98_icons/windows98-icons/png/arrow_right-2.png" alt="Suivant">
                 <span>Suivant</span>
             </div>
             <div class="toolbar-separator"></div>
             <div class="toolbar-button">
-                <img src="https://win98icons.alexmeub.com/icons/png/stop-2.png" alt="Arrêter">
+                <img src="./win98_icons/windows98-icons/png/shut_down_with_computer-0.png" alt="Arrêter">
                 <span>Arrêter</span>
             </div>
             <div class="toolbar-button">
-                <img src="https://win98icons.alexmeub.com/icons/png/refresh-3.png" alt="Actualiser">
+                <img src="./win98_icons/windows98-icons/png/overlay_refresh-1.png" alt="Actualiser">
                 <span>Actualiser</span>
             </div>
             <div class="toolbar-button">
-                <img src="https://win98icons.alexmeub.com/icons/png/home-2.png" alt="Démarrage">
+                <img src="./win98_icons/windows98-icons/png/homepage-1.png" alt="Démarrage">
                 <span>Démarrage</span>
             </div>
             <div class="toolbar-separator"></div>
             <div class="toolbar-button">
-                <img src="https://win98icons.alexmeub.com/icons/png/search-2.png" alt="Recherche">
+                <img src="./win98_icons/windows98-icons/png/search_web-0.png" alt="Recherche">
                 <span>Recherche</span>
             </div>
             <div class="toolbar-button">
-                <img src="https://win98icons.alexmeub.com/icons/png/favorites-2.png" alt="Favoris">
+                <img src="./win98_icons/windows98-icons/png/directory_favorites-1.png" alt="Favoris">
                 <span>Favoris</span>
             </div>
         </div>
@@ -101,12 +103,14 @@
         </div>
 
         <div class="window-body scrollable-content ie-content">
-            
+
             <div class="internal-nav">
                 <a href="#home" class="win98-btn">Accueil</a>
                 <a href="#about" class="win98-btn">Qui suis-je ?</a>
+                <a href="formation.html" class="win98-btn">Formation</a>
                 <a href="#projects" class="win98-btn">Mes projets</a>
                 <a href="#contact" class="win98-btn">Contact</a>
+                <a href="https://gaeldier.github.io/Portfolio-BUT/cv.pdf" class="win98-btn">Mon CV</a>
             </div>
 
             <section id="home" class="win-section">
@@ -114,34 +118,38 @@
                     <legend id="welcome-legend" class="wordart-blue">Bienvenue sur mon portfolio numérique !</legend>
                     <h1>Bonjour, je suis Gaël Dierynck</h1>
                     <h2 class="typing-text">Étudiant en BUT Informatique - II Année.</h2>
-                    <p>Développement Java, Web & Algorithmique.</p>
+                    <p>Administration système, développement haut & bas niveau, algorithmique.</p>
                     <a href="#projects" class="win98-btn">Voir mes travaux...</a>
                 </div>
             </section>
 
             <section id="about" class="win-section">
-                 <h2 class="win-heading">Propriétés Système (À propos)</h2>
-                 <div class="about-layout">
-                     <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" alt="User computer" class="pixel-img">
-                     <div>
-                        <p>Étudiant passionné par la conception logicielle et l'algorithmie. J'aime résoudre des problèmes complexes (Java, C, Web).</p>
+                <h2 class="win-heading" id="fancyboi">sysdm.cpl | Propriétés Système (À propos)</h2>
+                <div class="about-layout">
+                    <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" alt="User computer"
+                        class="pixel-img">
+                    <div>
+                        <p>Étudiant passionné par les systèmes informatiques. J'aime aussi résoudre des problèmes
+                            complexes (Java, C, PostgreSQL).</p>
                         <div class="skills-panel plain-panel">
                             <p>Compétences installées :</p>
                             <ul>
-                                <li>[x] Java / POO</li>
-                                <li>[x] Web (HTML/CSS/JS)</li>
-                                <li>[x] Gestion de données (CSV/SQL)</li>
-                                <li>[x] Algorithmique</li>
+                                <li>[x] Administration Système (Linux/Bash)</li>
+                                <li>[x] Java / J2EE (POO)</li>
+                                <li>[x] Bas niveau (C, Rust)</li>
+                                <li>[x] Virtualisation avancée & Conteneurs (Docker, VirtualBox, VMWare)</li>
+                                <li>[x] Gestion de données (PostgreSQL, JBDC, MS Access)</li>
+                                <li>[x] Algorithmique générale</li>
                             </ul>
                         </div>
-                     </div>
-                 </div>
+                    </div>
+                </div>
             </section>
 
             <section id="projects" class="win-section">
-                <h2 class="win-heading">Mes Documents/Projets (C:\Dev)</h2>
+                <h2 class="win-heading" id="fancyboi">dir C:\Dev | Mes Documents/Projets </h2>
                 <div class="projects-grid">
-                    
+
                     <div class="window plain-panel project-card">
                         <div class="title-bar inactive-title-bar">
                             <div class="title-bar-text">iJava_Fighter.jar</div>
@@ -160,10 +168,11 @@
                             <div class="title-bar-text">SAE_Appariement_v4.class</div>
                         </div>
                         <div class="window-body card-content">
-                             <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="folder icon">
+                            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png"
+                                alt="folder icon">
                             <h3>Algo d'Appariement</h3>
                             <p>Gestion d'ados (CSV/Sérialisation). Calcul de compatibilité et tri.</p>
-                             <p style="font-size:10px; color:gray;">Java | MVC | UML</p>
+                            <p style="font-size:10px; color:gray;">Java | MVC | UML</p>
                             <button class="win98-btn">Voir UML</button>
                         </div>
                     </div>
@@ -185,7 +194,7 @@
                             <div class="title-bar-text">dashboard.xls</div>
                         </div>
                         <div class="window-body card-content">
-                             <img src="https://win98icons.alexmeub.com/icons/png/chart1-4.png" alt="chart icon">
+                            <img src="https://win98icons.alexmeub.com/icons/png/chart1-4.png" alt="chart icon">
                             <h3>Dashboard Data</h3>
                             <p>Visualisation de données et graphiques dynamiques.</p>
                             <button class="win98-btn">Ouvrir</button>
@@ -216,8 +225,8 @@
                     </div>
                 </form>
             </section>
-            
-             <footer class="plain-panel status-bar">
+
+            <footer class="plain-panel status-bar">
                 <p>Prêt. © 2025 Gaël Dierynck - IUT Lille.</p>
             </footer>
 
@@ -225,21 +234,22 @@
     </div>
 
     <div class="taskbar">
-        <button class="start-btn">
+        <button class="start-btn" onclick="window.location.href='https://github.com/gaeldier'">
             <img src="https://win98icons.alexmeub.com/icons/png/windows_slanted-1.png" alt="win logo">
             Démarrer
         </button>
         <div class="taskbar-divider"></div>
         <div class="task-item active-task">
-             <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="icon">
-             Portfolio de Gaël
+            <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="icon">
+            Portfolio de Gaël
         </div>
         <div class="tray-area">
-            <img src="https://win98icons.alexmeub.com/icons/png/audio_loudspeaker-0.png" class="tray-icon" alt="sound">
-             <span class="time">10:42 AM</span>
+            <img src="./win98_icons/windows98-icons/png/computer_sound-1.png" class="tray-icon" alt="sound">
+            <span class="time">10:42 AM</span>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

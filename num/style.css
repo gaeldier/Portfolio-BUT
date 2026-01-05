@@ -352,7 +352,37 @@ legend { margin-left: 10px; padding: 0 5px; }
     -webkit-text-fill-color: transparent;
     /*Faire en sorte qu'il soit au milieu*/
     text-align: center;
-    
+
     /* Petit contour blanc pour détacher du fond gris */
     -webkit-text-stroke: 1px #ffffff;
+}
+/* THEGOODS */
+#fancyboi::before {
+        content: "$ ";
+}
+
+@media (prefers-reduced-motion: no-preference) {
+        @keyframes flash {
+                50% { opacity: 0; }
+        }
+
+        @keyframes reveal {
+                from { max-width: 2em; } /* Width of ::before */
+                  to { max-width: 100%; }
+        }
+
+        #fancyboi {
+                overflow: hidden;
+                white-space: nowrap;
+                animation: reveal 4s linear;
+                text-overflow: "█";
+        }
+
+        #fancyboi::after {
+                content: "█";
+                animation: flash 0.5s step-end infinite;
+                position: relative;
+                top: -2px;
+                margin-left: 3px;
+        }
 }
