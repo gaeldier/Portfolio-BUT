@@ -386,3 +386,11 @@ legend { margin-left: 10px; padding: 0 5px; }
                 margin-left: 3px;
         }
 }
+
+/* en gras*/
+p {
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.4;
+    font-weight: bold;
+}

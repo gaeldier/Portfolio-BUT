@@ -15,9 +15,9 @@
             <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-2.png" alt="Poste de travail">
             <span>Poste de travail</span>
         </div>
-        <div class="desktop-icon">
-            <img src="./win98_icons/windows98-icons/png/directory_open_file_mydocs-0.png" alt="Mes documents">
-            <span>Mes documents</span>
+        <div class="desktop-icon" onclick="window.location.href='https://github.com/gaeldier/Portfolio-BUT/'">
+            <img src="./win98_icons/windows98-icons/png/directory_open_file_mydocs-0.png" alt="Mes documents" >
+            <span onclick="window.location.href='https://github.com/gaeldier/Portfolio-BUT'">Mes documents</span>
         </div>
         <div class="desktop-icon">
             <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="Internet Explorer">
@@ -117,7 +117,7 @@
                 <div class="fieldset-look">
                     <legend id="welcome-legend" class="wordart-blue">Bienvenue sur mon portfolio numérique !</legend>
                     <h1>Bonjour, je suis Gaël Dierynck</h1>
-                    <h2 class="typing-text">Étudiant en BUT Informatique - II Année.</h2>
+                    <h2 class="typing-text">Étudiant en BUT Informatique - II Année | Université de Lille (Campus Villeneuve d'Ascq)</h2>
                     <p>Administration système, développement haut & bas niveau, algorithmique.</p>
                     <a href="#projects" class="win98-btn">Voir mes travaux...</a>
                 </div>
@@ -129,8 +129,12 @@
                     <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" alt="User computer"
                         class="pixel-img">
                     <div>
-                        <p>Étudiant passionné par les systèmes informatiques. J'aime aussi résoudre des problèmes
-                            complexes (Java, C, PostgreSQL).</p>
+                        <p id="paraMoi">Étudiant Lillois de 20 ans passionné par les systèmes informatiques, j'ai fait le choix de rejoindre le BUT Informatique à l'IUT de Lille pour approfondir mes connaissances et compétences dans ce domaine.
+                            Choisissant le parcours DACS(Déploiement d'applications comminicantes et sécurisées), je me spécialise dans l'administration sysème, les réseaux, le scripting et la sécurité informatique.
+                            Mon objectif est de devenir un administrateur système compétent, capable de gérer et sécuriser des infrastructures.
+                            Je ne perds néanmoins pas mes capacités de developpement, ayant acquis des compétences complètes en Java, C et autres langages durant mes deux premières années. 
+                            Je m'intéresse également à l'architecture des systèmes et à l'optimisation des performances, aux aspects matériels, à l'architecture logicielle, à la programmation bas-niveau, au pentesting et à la cybersécurité (Pour certains interêts, c'est même depuis tout petit!).
+                      </p>
                         <div class="skills-panel plain-panel">
                             <p>Compétences installées :</p>
                             <ul>
@@ -150,6 +154,33 @@
                 <h2 class="win-heading" id="fancyboi">dir C:\Dev | Mes Documents/Projets </h2>
                 <div class="projects-grid">
 
+                      <div class="window plain-panel project-card">
+                        <div class="title-bar inactive-title-bar">
+                            <div class="title-bar-text">IUTerrain.jar</div>
+                        </div>
+                        <div class="window-body card-content">
+                            <img src="https://win98icons.alexmeub.com/icons/png/html-1.png" alt="html icon">
+                            <h3>Jeu de labyrinthes</h3>
+                            <p>Génération de labyrinthes, résolution automatique, jeu solo.</p>
+                            <p style="font-size:10px; color:gray;">Java | MVC | UML | Maven | JavaFX</p>
+
+                            <button class="win98-btn" onclick="window.location.href='iuterrain1.html'">Visiter</button>
+                        </div>
+                    </div>
+
+                    <div class="window plain-panel project-card">
+                        <div class="title-bar inactive-title-bar">
+                            <div class="title-bar-text">Gamblor</div>
+                        </div>
+                        <div class="window-body card-content">
+                            <img src="./win98_icons/windows98-icons/png/joystick_alt-1.png" alt="chart icon">
+                            <h3>Gamblor</h3>
+                            <p>Jeu de casino en Java en projet agile.</p>
+                            <p style="font-size:10px; color:gray;">Java | UML  | Agile</p>
+                            <button class="win98-btn" onclick="window.location.href='gamblor.html'">Ouvrir</button>
+                        </div>
+                    </div>
+
                     <div class="window plain-panel project-card">
                         <div class="title-bar inactive-title-bar">
                             <div class="title-bar-text">iJava_Fighter.jar</div>
@@ -158,8 +189,8 @@
                             <img src="https://win98icons.alexmeub.com/icons/png/joystick-0.png" alt="game icon">
                             <h3>iJava Fighter</h3>
                             <p>Jeu de combat éducatif au tour par tour. Résolvez des calculs pour attaquer !</p>
-                            <p style="font-size:10px; color:gray;">Java 8+ | Mode Hardcore</p>
-                            <button class="win98-btn">Lancer run.sh</button>
+                            <p style="font-size:10px; color:lightskyblue;" onclick="window.location.href='http://www.iut-info.univ-lille.fr/~yann.secq/ijava/'">iJava (Language maison)</p>
+                            <button class="win98-btn" onclick="window.location.href='ijava.html'">Lancer run.sh</button>
                         </div>
                     </div>
 
@@ -172,35 +203,12 @@
                                 alt="folder icon">
                             <h3>Algo d'Appariement</h3>
                             <p>Gestion d'ados (CSV/Sérialisation). Calcul de compatibilité et tri.</p>
-                            <p style="font-size:10px; color:gray;">Java | MVC | UML</p>
-                            <button class="win98-btn">Voir UML</button>
-                        </div>
-                    </div>
-
-                    <div class="window plain-panel project-card">
-                        <div class="title-bar inactive-title-bar">
-                            <div class="title-bar-text">boutique.exe</div>
-                        </div>
-                        <div class="window-body card-content">
-                            <img src="https://win98icons.alexmeub.com/icons/png/html-1.png" alt="html icon">
-                            <h3>Site E-commerce</h3>
-                            <p>Projet Web complet avec panier et gestion produits.</p>
-                            <button class="win98-btn">Visiter</button>
-                        </div>
-                    </div>
-
-                    <div class="window plain-panel project-card">
-                        <div class="title-bar inactive-title-bar">
-                            <div class="title-bar-text">dashboard.xls</div>
-                        </div>
-                        <div class="window-body card-content">
-                            <img src="https://win98icons.alexmeub.com/icons/png/chart1-4.png" alt="chart icon">
-                            <h3>Dashboard Data</h3>
-                            <p>Visualisation de données et graphiques dynamiques.</p>
-                            <button class="win98-btn">Ouvrir</button>
+                            <p style="font-size:10px; color:gray;">Java | MVC | UML | JavaFX</p>
+                            <button class="win98-btn" onclick="window.location.href='poo.html'">Voir UML</button>
                         </div>
                     </div>
                 </div>
+
             </section>
 
             <section id="contact" class="win-section last-section">
@@ -241,7 +249,7 @@
         <div class="taskbar-divider"></div>
         <div class="task-item active-task">
             <img src="https://win98icons.alexmeub.com/icons/png/msie1-2.png" alt="icon">
-            Portfolio de Gaël
+            Portfolio de Gaël - Microsoft Internet Explorer
         </div>
         <div class="tray-area">
             <img src="./win98_icons/windows98-icons/png/computer_sound-1.png" class="tray-icon" alt="sound">

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Appariement POO</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="desktop-icons">
+        <div class="desktop-icon"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-2.png"><span>Poste de travail</span></div>
+    </div>
+
+    <div class="window win98-container ie-window">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" class="title-icon">
+                Gestion des échanges internationaux - V4.0
+            </div>
+            <div class="title-bar-controls">
+                <button>_</button><button>□</button><a href="index.html"><button class="close-btn">X</button></a>
+            </div>
+        </div>
+
+        <div class="toolbar plain-panel">
+            <a href="index.html" class="toolbar-button"><img src="https://win98icons.alexmeub.com/icons/png/arrow_left-2.png"><span>Précédent</span></a>
+            <div class="toolbar-separator"></div>
+            <div class="toolbar-button"><img src="https://win98icons.alexmeub.com/icons/png/print-0.png"><span>Imprimer</span></div>
+        </div>
+
+        <div class="address-bar plain-panel">
+            <label>Adresse</label>
+            <div class="address-input-wrapper win-input">
+                <img src="https://win98icons.alexmeub.com/icons/png/file_lines-0.png">
+                <input type="text" value="C:\Documents\Rapports\SAE_POO_Final.pdf" readonly>
+            </div>
+        </div>
+
+        <div class="window-body scrollable-content ie-content" style="padding: 15px !important;">
+            
+            <div class="project-layout">
+                <div class="project-sidebar">
+                    <div class="fieldset-look tech-stack-panel">
+                        <legend>Structure</legend>
+                        <ul class="tech-list">
+                            <li>📂 src/</li>
+                            <li>📂 bin/</li>
+                            <li>📂 graphes/</li>
+                            <li>📂 test/</li>
+                            <li>📄 umlv4.png</li>
+                        </ul>
+                    </div>
+                    <div class="fieldset-look tech-stack-panel">
+                        <legend>Détails</legend>
+                        <div class="plain-panel" style="padding:5px; background:white; font-size:11px;">
+                            <div class="stat-row"><span>Version:</span> <strong>4.0 Final</strong></div>
+                            <div class="stat-row"><span>Classes:</span> <strong>11</strong></div>
+                            <div class="stat-row"><span>Tests:</span> <strong>6 Classes</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-details">
+                    <h2 class="win-heading">Algorithme d'Appariement 🤝</h2>
+                    <p>Développement d'une application Java pour gérer les échanges scolaires internationaux. Le but est de créer des paires "Hôte / Visiteur" basées sur un score de compatibilité.</p>
+
+                    <div class="fieldset-look" style="margin-top: 15px; background: #ffffd0;">
+                        <legend>Critères de compatibilité</legend>
+                        <p>L'algorithme calcule un score d'affinité basé sur :</p>
+                        <ul>
+                            <li>🥗 <strong>Régime alimentaire</strong> (Végétarien, Halal, etc.)</li>
+                            <li>🐶 <strong>Allergies aux animaux</strong></li>
+                            <li>🎨 <strong>Hobbies</strong> (Score pondéré)</li>
+                            <li>📅 <strong>Historique</strong> (Éviter les répétitions)</li>
+                        </ul>
+                    </div>
+
+                    <h3 style="margin-top:20px;">Architecture Technique</h3>
+                    <p>Le projet suit une architecture stricte avec séparation des responsabilités[cite: 180]:</p>
+                    <ul style="list-style-type: square; padding-left: 20px;">
+                        <li><strong>CSVReader/Writer :</strong> Gestion de la persistance des données.</li>
+                        <li><strong>AdolescentsArray :</strong> HashMap optimisée pour gérer les paires.</li>
+                        <li><strong>Serializer :</strong> Sauvegarde binaire de l'état de l'application.</li>
+                    </ul>
+                    
+                    <div class="code-block" style="background:#e0e0e0; color:black;">
+// Exemple de calcul de score (Simplifié)
+public double getScorePourAppariement(Adolescents other) {
+    double score = 0;
+    if (this.allergies == other.hasAnimal) return -100; // Impossible
+    if (this.hobbies.equals(other.hobbies)) score += 20;
+    return score;
+}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="plain-panel status-bar"><p>Analyse terminée. Aucun conflit détecté.</p></footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Gamblor Casino</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+
+</head>
+<body>
+
+    <div class="desktop-icons">
+        <div class="desktop-icon"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-2.png" alt="PC"><span>Poste de travail</span></div>
+    </div>
+
+    <div class="window win98-container ie-window">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <img src="https://win98icons.alexmeub.com/icons/png/game_solitaire-0.png" class="title-icon" alt="icon">
+                C:\Dev\Java\Gamblor_Casino.exe
+            </div>
+            <div class="title-bar-controls">
+                <button>_</button><button>□</button><a href="index.html"><button class="close-btn">X</button></a>
+            </div>
+        </div>
+
+        <div class="toolbar plain-panel">
+            <a href="index.html" class="toolbar-button"><img src="https://win98icons.alexmeub.com/icons/png/arrow_left-2.png"><span>Précédent</span></a>
+            <div class="toolbar-separator"></div>
+            <div class="toolbar-button"><img src="https://win98icons.alexmeub.com/icons/png/chm-2.png"><span>Aide</span></div>
+        </div>
+
+        <div class="address-bar plain-panel">
+            <label>Adresse</label>
+            <div class="address-input-wrapper win-input">
+                <img src="https://win98icons.alexmeub.com/icons/png/folder_open-0.png">
+                <input type="text" value="C:\Projets\Java\Console\Gamblor" readonly>
+            </div>
+        </div>
+
+        <div class="window-body scrollable-content ie-content" style="padding: 15px !important;">
+            
+            <div class="project-layout">
+                <div class="project-sidebar">
+                    <div class="fieldset-look tech-stack-panel">
+                        <legend>Technologies</legend>
+                        <ul class="tech-list">
+                            <li>Java Pure (Console)</li>
+                            <li>Serializable (IO)</li>
+                            <li>ASCII Art Rendering</li>
+                            <li>Gestion de Fichiers</li>
+                        </ul>
+                    </div>
+                    <div class="fieldset-look tech-stack-panel">
+                        <legend>Statistiques</legend>
+                        <div class="plain-panel" style="padding:5px; background:white; font-size:11px;">
+                            <div class="stat-row"><span>Classes:</span> <strong>~12</strong></div>
+                            <div class="stat-row"><span>Events:</span> <strong>Aléatoires</strong></div>
+                            <div class="stat-row"><span>Items:</span> <strong>7 + Marché Noir</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-details">
+                    <h2 class="win-heading">Gamblor - Simulation de Casino 🎰</h2>
+                    <p>Un jeu de gestion et de hasard en ligne de commande. Le joueur doit gérer son argent mais surtout son <strong>niveau de stress</strong> pour ne pas faire une crise cardiaque.</p>
+                    
+                    <div class="fieldset-look" style="margin-top: 15px;">
+                        <legend>Mécaniques de Jeu</legend>
+                        <div class="feature-grid">
+                            <div class="plain-panel" style="padding:10px; background:#efefef;">
+                                <strong>🎲 Jeux de Hasard</strong>
+                                <p style="font-size:11px;">Machine à sous (Slots) et Roulette fonctionnelle avec gestion des paris.</p>
+                            </div>
+                            <div class="plain-panel" style="padding:10px; background:#efefef;">
+                                <strong>❤️ Gestion du Stress</strong>
+                                <p style="font-size:11px;">Jauge vitale. Si le stress atteint 100%, c'est Game Over. Les gains réduisent le stress, les pertes l'augmentent.</p>
+                            </div>
+                            <div class="plain-panel" style="padding:10px; background:#efefef;">
+                                <strong>🛒 Boutique & Inventaire</strong>
+                                <p style="font-size:11px;">Achat de consommables (Café, Cigarette, Pizza) pour gérer le stress ou Marché Noir (Reins, Sang) pour l'argent.</p>
+                            </div>
+                            <div class="plain-panel" style="padding:10px; background:#efefef;">
+                                <strong>💾 Sauvegarde</strong>
+                                <p style="font-size:11px;">Système de sérialisation binaire (.kar) pour sauvegarder la progression du joueur.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top:20px;">Snippet : Gestion des Événements Aléatoires</h3>
+                    <p>Le jeu inclut un système d'événements (trouver de l'argent, accident, etc.) qui se déclenchent aléatoirement tous les X tours.</p>
+                    <div class="code-block">
+public void consequenceEvent(Events e, Joueur j){
+    if (e.equals(Events.MORT_GM)){
+        j.addWallet(100);
+        System.out.println("Héritage : Vous gagnez 100$");
+    }
+    else if(e.equals(Events.VOITURE)){
+       j.addStress(20);
+       System.out.println("Accident : Votre stress monte de 20");
+    }
+    else if(e.equals(Events.REDUC)){
+        this.reduc=true;
+        System.out.println("Promo : Prochain tirage moitié prix !");
+    }
+    // ... gestion des autres événements
+}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="plain-panel status-bar"><p>Compilation réussie. Prêt à jouer.</p></footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

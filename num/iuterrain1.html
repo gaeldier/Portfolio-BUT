@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : IUT'ERRAIN</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="desktop-icons">
+        <div class="desktop-icon"><img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-2.png" alt="PC"><span>Poste de travail</span></div>
+    </div>
+
+    <div class="window win98-container ie-window">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <img src="https://win98icons.alexmeub.com/icons/png/joystick-0.png" class="title-icon" alt="icon">
+                C:\Dev\Java\IUT_ERRAIN.exe
+            </div>
+            <div class="title-bar-controls">
+                <button>_</button><button>□</button><a href="index.html"><button class="close-btn">X</button></a>
+            </div>
+        </div>
+
+        <div class="toolbar plain-panel">
+            <a href="index.html" class="toolbar-button"><img src="https://win98icons.alexmeub.com/icons/png/arrow_left-2.png"><span>Précédent</span></a>
+            <div class="toolbar-separator"></div>
+            <a href="https://gitlab.univ-lille.fr/sae302/2025/J5_SAE3.3.git" target="_blank" class="toolbar-button"><img src="https://win98icons.alexmeub.com/icons/png/network_cool_two_pcs-2.png"><span>GitLab</span></a>
+        </div>
+
+        <div class="address-bar plain-panel">
+            <label>Adresse</label>
+            <div class="address-input-wrapper win-input">
+                <img src="https://win98icons.alexmeub.com/icons/png/folder_open-0.png">
+                <input type="text" value="C:\Projets\IUT_Terrain_JavaFX" readonly>
+            </div>
+        </div>
+
+        <div class="window-body scrollable-content ie-content" style="padding: 15px !important;">
+            
+            <div class="project-layout">
+                <div class="project-sidebar">
+                    <div class="fieldset-look tech-stack-panel">
+                        <legend>Technologies</legend>
+                        <ul class="tech-list">
+                            <li>Java 17</li>
+                            <li>JavaFX (GUI)</li>
+                            <li>Maven</li>
+                            <li>JUnit 5</li>
+                            <li>Git / GitLab</li>
+                        </ul>
+                    </div>
+                    <div class="fieldset-look tech-stack-panel">
+                        <legend>Équipe</legend>
+                        <div class="plain-panel" style="padding:5px; background:white; font-size:11px;">
+                            <div class="stat-row"><span>Dev:</span> <strong>G. Dierynck</strong></div>
+                            <div class="stat-row"><span>Dev:</span> <strong>D. Banas</strong></div>
+                            <div class="stat-row"><span>Dev:</span> <strong>Y. Wattrelos</strong></div>
+                            <div class="stat-row"><span>Dev:</span> <strong>M. Zavadskyi</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-details">
+                    <h2 class="win-heading">IUT'ERRAIN 🎮</h2>
+                    <p>Un jeu de labyrinthe complexe développé en Java. Le joueur doit naviguer de l'entrée à la sortie en évitant les pièges.</p>
+                    
+                    <div class="fieldset-look" style="margin-top: 15px;">
+                        <legend>Fonctionnalités Clés</legend>
+                        <div class="feature-grid">
+                            <div class="plain-panel" style="padding:10px; background:#efefef;">
+                                <strong>🕵️ Mode Vue Restreinte</strong>
+                                <p style="font-size:11px;">Brouillard de guerre pour augmenter la difficulté.</p>
+                            </div>
+                            <div class="plain-panel" style="padding:10px; background:#efefef;">
+                                <strong>💾 Sauvegarde</strong>
+                                <p style="font-size:11px;">Persistance des données (binaire/XML) pour reprendre la partie.</p>
+                            </div>
+                            <div class="plain-panel" style="padding:10px; background:#efefef;">
+                                <strong>🛠️ Mode Éditeur</strong>
+                                <p style="font-size:11px;">Génération procédurale de labyrinthes personnalisés.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top:20px;">Extrait du code (Installation)</h3>
+                    <div class="code-block">
+$ git clone https://gitlab.univ-lille.fr/sae302...
+$ mvn install
+$ mvn javafx:run
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="plain-panel status-bar"><p>1 objet(s) sélectionné(s). Taille: 42 Mo</p></footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
