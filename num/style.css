@@ -1,12 +1,12 @@
 /* Palette de couleurs officielle Win98 */
 :root {
-    --win-teal: #008080; /* Couleur du bureau */
-    --win-gray: #c0c0c0; /* Couleur principale des fenêtres */
-    --win-dark-gray: #808080; /* Ombres intermédiaires */
-    --win-black: #000000; /* Ombres profondes et texte */
-    --win-white: #ffffff; /* Hautes lumières */
-    --win-blue-title: #000080; /* Barre de titre active */
-    --win-light-gray: #dfdfdf; /* Lumière intermédiaire */
+    --win-teal: #008080;
+    --win-gray: #c0c0c0;
+    --win-dark-gray: #808080;
+    --win-black: #000000;
+    --win-white: #ffffff;
+    --win-blue-title: #000080;
+    --win-light-gray: #dfdfdf;
     --font-win: 'Tahoma', 'Verdana', sans-serif;
 }
 
@@ -34,8 +34,7 @@ body {
     font-size: 13px;
     color: var(--win-black);
     height: 100vh;
-    overflow: hidden;
-    /* Modification pour le bureau : plus de flex center */
+    overflow: hidden; /* Empêche le scroll de la page entière (le fond bleu) */
     position: relative; 
 }
 
@@ -68,7 +67,7 @@ body {
 
 .desktop-icon span {
     font-size: 12px;
-    text-shadow: 1px 1px var(--win-black); /* Ombre portée pour la lisibilité sur fond teal */
+    text-shadow: 1px 1px var(--win-black);
     padding: 2px;
 }
 
@@ -78,16 +77,8 @@ body {
 }
 
 
-/* --- LE COEUR DU STYLE WIN98 : LES BORDURES --- */
-/* Mixin pour l'effet "bouton sorti" (Raised) */
-.window,
-.win98-btn,
-.taskbar,
-.start-btn,
-.task-item,
-.toolbar,
-.address-bar,
-.toolbar-button {
+/* --- BORDURES WIN98 --- */
+.window, .win98-btn, .taskbar, .start-btn, .task-item, .toolbar, .address-bar, .toolbar-button {
     background-color: var(--win-gray);
     border-top: 1px solid var(--win-light-gray);
     border-left: 1px solid var(--win-light-gray);
@@ -96,11 +87,7 @@ body {
     box-shadow: inset 1px 1px 0px var(--win-white), inset -1px -1px 0px var(--win-dark-gray);
 }
 
-/* Mixin pour l'effet "enfoncé" (Sunken) - inputs, zones de contenu */
-.window-body,
-.win-input,
-.plain-panel,
-.address-input-wrapper {
+.window-body, .win-input, .plain-panel, .address-input-wrapper {
     border-top: 1px solid var(--win-dark-gray);
     border-left: 1px solid var(--win-dark-gray);
     border-right: 1px solid var(--win-white);
@@ -111,20 +98,19 @@ body {
 
 /* --- Structure de la fenêtre principale --- */
 .win98-container {
-    /* Positionnement sur le bureau */
     position: absolute;
-    top: 50px;
-    left: 100px;
-    width: 80%;
-    max-width: 1024px;
-    height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;          
+    max-width: 1400px;   
+    height: 85vh;
     display: flex;
     flex-direction: column;
     padding: 2px;
     z-index: 10;
 }
 
-/* Barre de titre bleue */
 .title-bar {
     background: linear-gradient(90deg, var(--win-blue-title), #1084d0);
     padding: 3px 5px;
@@ -133,517 +119,240 @@ body {
     align-items: center;
     color: var(--win-white);
     font-weight: bold;
+    flex-shrink: 0;
 }
 
-.title-bar-text {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.title-icon {
-    width: 16px;
-    height: 16px;
-}
+.title-bar-text { display: flex; align-items: center; gap: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.title-icon { width: 16px; height: 16px; }
 
 .title-bar-controls button {
-    width: 16px;
-    height: 14px;
-    font-family: sans-serif;
-    font-size: 9px;
-    font-weight: bold;
-    line-height: 1;
-    margin-left: 2px;
-    padding: 0;
-    background: var(--win-gray);
-    border-top: 1px solid var(--win-white);
-    border-left: 1px solid var(--win-white);
-    border-right: 1px solid var(--win-black);
-    border-bottom: 1px solid var(--win-black);
+    width: 16px; height: 14px; font-family: sans-serif; font-size: 9px; font-weight: bold; line-height: 1;
+    margin-left: 2px; padding: 0; background: var(--win-gray);
+    border-top: 1px solid var(--win-white); border-left: 1px solid var(--win-white);
+    border-right: 1px solid var(--win-black); border-bottom: 1px solid var(--win-black);
     cursor: default;
 }
+.close-btn { font-size: 11px !important; }
 
-.close-btn {
-    font-size: 11px !important;
-}
-
-/* --- Interface Internet Explorer --- */
-
-/* Barre de menu (File, Edit...) */
+/* --- Interface IE --- */
 .menu-bar {
-    background-color: var(--win-gray);
-    padding: 2px 5px;
-    border-bottom: 1px solid var(--win-dark-gray);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: var(--win-gray); padding: 2px 5px; border-bottom: 1px solid var(--win-dark-gray);
+    display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
 }
-
-.menu-links {
-    list-style: none;
-    display: flex;
-}
-
-.menu-links li {
-    padding: 2px 8px;
-    border: 1px solid transparent;
-    cursor: default;
-}
-
+.menu-links { list-style: none; display: flex; }
+.menu-links li { padding: 2px 8px; border: 1px solid transparent; cursor: default; }
 .menu-links li:hover {
-    border-top: 1px solid var(--win-light-gray);
-    border-left: 1px solid var(--win-light-gray);
-    border-right: 1px solid var(--win-dark-gray);
-    border-bottom: 1px solid var(--win-dark-gray);
+    border-top: 1px solid var(--win-light-gray); border-left: 1px solid var(--win-light-gray);
+    border-right: 1px solid var(--win-dark-gray); border-bottom: 1px solid var(--win-dark-gray);
 }
+.menu-logo-ie img { width: 24px; height: 24px; padding: 2px; border: 1px solid transparent; }
 
-.menu-logo-ie img {
-    width: 24px;
-    height: 24px;
-    padding: 2px;
-    border: 1px solid transparent;
-}
-
-/* Barre d'outils (Toolbar) */
 .toolbar {
-    display: flex;
-    align-items: center;
-    padding: 2px 5px;
-    gap: 2px;
-    border: none !important; /* On enlève les bords de base, le .plain-panel les gère */
-    box-shadow: none !important;
+    display: flex; align-items: center; padding: 2px 5px; gap: 2px;
+    border: none !important; box-shadow: none !important; flex-shrink: 0;
 }
-
 .toolbar-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2px 5px;
-    min-width: 50px;
-    border: 1px solid transparent;
-    box-shadow: none !important;
-    border: none !important;
-    cursor: default;
+    display: flex; flex-direction: column; align-items: center; padding: 2px 5px; min-width: 50px;
+    border: 1px solid transparent !important; box-shadow: none !important; cursor: default;
 }
-
 .toolbar-button:hover:not(.disabled) {
-    border-top: 1px solid var(--win-light-gray) !important;
-    border-left: 1px solid var(--win-light-gray) !important;
-    border-right: 1px solid var(--win-black) !important;
-    border-bottom: 1px solid var(--win-black) !important;
+    border-top: 1px solid var(--win-light-gray) !important; border-left: 1px solid var(--win-light-gray) !important;
+    border-right: 1px solid var(--win-black) !important; border-bottom: 1px solid var(--win-black) !important;
     box-shadow: inset 1px 1px 0px var(--win-white), inset -1px -1px 0px var(--win-dark-gray) !important;
 }
 .toolbar-button:active:not(.disabled) {
-    border-top: 1px solid var(--win-black) !important;
-    border-left: 1px solid var(--win-black) !important;
+    border-top: 1px solid var(--win-black) !important; border-left: 1px solid var(--win-black) !important;
+    border-right: 1px solid var(--win-light-gray) !important; border-bottom: 1px solid var(--win-light-gray) !important;
+    box-shadow: inset 1px 1px 0px var(--win-dark-gray), inset -1px -1px 0px var(--win-white) !important;
+    padding: 3px 4px 1px 6px !important;
+}
+.toolbar-button img { width: 24px; height: 24px; margin-bottom: 2px; }
+.toolbar-button span { font-size: 11px; }
+.toolbar-button.disabled { color: var(--win-dark-gray); }
+.toolbar-button.disabled img { filter: grayscale(100%) opacity(50%); }
+.toolbar-separator { width: 2px; height: 36px; margin: 0 4px; border-left: 1px solid var(--win-dark-gray); border-right: 1px solid var(--win-white); }
+
+.address-bar {
+    display: flex; align-items: center; padding: 4px 5px; gap: 5px;
+    border: none !important; box-shadow: none !important; border-top: 1px solid var(--win-white) !important; flex-shrink: 0;
+}
+.address-bar label { font-size: 11px; }
+.address-input-wrapper { flex: 1; display: flex; align-items: center; padding: 1px 2px; background-color: var(--win-white); }
+.address-input-wrapper img { width: 16px; height: 16px; margin-right: 4px; }
+.address-input-wrapper input { flex: 1; border: none; outline: none; font-family: var(--font-win); font-size: 12px; }
+.address-dropdown-btn {
+    width: 16px; height: 16px; background-color: var(--win-gray);
+    border-top: 1px solid var(--win-light-gray); border-left: 1px solid var(--win-light-gray);
+    border-right: 1px solid var(--win-black); border-bottom: 1px solid var(--win-black);
+    box-shadow: inset 1px 1px 0px var(--win-white), inset -1px -1px 0px var(--win-dark-gray);
+    display: flex; justify-content: center; align-items: center; font-size: 8px; cursor: default;
+}
+
+/* --- CONTENU DÉROULANT --- */
+.ie-content {
+    background-color: var(--win-white) !important;
+    border-top: 1px solid var(--win-black) !important; 
+    border-left: 1px solid var(--win-black) !important; 
     border-right: 1px solid var(--win-light-gray) !important;
     border-bottom: 1px solid var(--win-light-gray) !important;
-    box-shadow: inset 1px 1px 0px var(--win-dark-gray), inset -1px -1px 0px var(--win-white) !important;
-    padding: 3px 4px 1px 6px !important; /* Décalage */
+    box-shadow: inset 1px 1px 0px var(--win-dark-gray) !important;
+    padding: 0 !important;
+    flex-grow: 1;
+    margin: 2px;
+    /* C'EST ICI QUE LA MAGIE OPÈRE POUR LE SCROLL : */
+    overflow-y: auto; 
 }
 
-
-.toolbar-button img {
-    width: 24px;
-    height: 24px;
-    margin-bottom: 2px;
-}
-
-.toolbar-button span {
-    font-size: 11px;
-}
-
-.toolbar-button.disabled {
-    color: var(--win-dark-gray);
-}
-.toolbar-button.disabled img {
-    filter: grayscale(100%) opacity(50%);
-}
-
-.toolbar-separator {
-    width: 2px;
-    height: 36px;
-    margin: 0 4px;
-    border-left: 1px solid var(--win-dark-gray);
-    border-right: 1px solid var(--win-white);
-}
-
-/* Barre d'adresse */
-.address-bar {
-    display: flex;
-    align-items: center;
-    padding: 4px 5px;
-    gap: 5px;
-    border: none !important;
-    box-shadow: none !important;
-    border-top: 1px solid var(--win-white) !important; /* Petit séparateur blanc */
-}
-
-.address-bar label {
-    font-size: 11px;
-}
-
-.address-input-wrapper {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 1px 2px;
-    background-color: var(--win-white);
-}
-
-.address-input-wrapper img {
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-}
-
-.address-input-wrapper input {
-    flex: 1;
-    border: none;
-    outline: none;
-    font-family: var(--font-win);
-    font-size: 12px;
-}
-
-.address-dropdown-btn {
-    width: 16px;
-    height: 16px;
-    background-color: var(--win-gray);
-    border-top: 1px solid var(--win-light-gray);
-    border-left: 1px solid var(--win-light-gray);
-    border-right: 1px solid var(--win-black);
-    border-bottom: 1px solid var(--win-black);
-    box-shadow: inset 1px 1px 0px var(--win-white), inset -1px -1px 0px var(--win-dark-gray);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 8px;
-    cursor: default;
-}
-
-/* Zone de contenu IE */
-.ie-content {
-    background-color: var(--win-white) !important; /* Fond blanc pour la page web */
-    border-top: 1px solid var(--win-black) !important; /* Bordure noire épaisse en haut */
-    border-left: 1px solid var(--win-dark-gray) !important;
-    padding: 0 !important; /* On gère le padding dans les sections */
-}
-
-/* Navigation interne dans la page */
 .internal-nav {
-    padding: 10px;
-    background-color: var(--win-gray);
-    border-bottom: 1px solid var(--win-dark-gray);
-    display: flex;
-    gap: 10px;
+    padding: 10px; background-color: var(--win-gray); border-bottom: 1px solid var(--win-dark-gray);
+    display: flex; gap: 10px;
 }
+.ie-content .win-section, .ie-content footer { padding: 20px; margin-bottom: 0; }
+.ie-content .win-section:not(:last-child) { border-bottom: 1px solid var(--win-light-gray); }
 
-/* Ajustements pour le contenu à l'intérieur de la zone blanche */
-.ie-content .win-section, .ie-content footer {
-    padding: 20px;
-    margin-bottom: 0;
-}
-.ie-content .win-section:not(:last-child) {
-    border-bottom: 1px solid var(--win-light-gray);
-}
-
-/* Scrollbar rétro (fonctionne surtout sur Chrome/Edge) */
-.scrollable-content::-webkit-scrollbar {
-    width: 16px;
-    background: var(--win-gray);
-}
-
+/* Scrollbar Customisée */
+.scrollable-content::-webkit-scrollbar { width: 16px; background: var(--win-gray); }
 .scrollable-content::-webkit-scrollbar-thumb {
     background-color: var(--win-gray);
-    border-top: 1px solid var(--win-light-gray);
-    border-left: 1px solid var(--win-light-gray);
-    border-right: 1px solid var(--win-black);
-    border-bottom: 1px solid var(--win-black);
+    border-top: 1px solid var(--win-light-gray); border-left: 1px solid var(--win-light-gray);
+    border-right: 1px solid var(--win-black); border-bottom: 1px solid var(--win-black);
     box-shadow: inset 1px 1px 0px var(--win-white), inset -1px -1px 0px var(--win-dark-gray);
 }
-
 .scrollable-content::-webkit-scrollbar-track {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAIklEQVQoU2NkgALmi4//Q0H4+P//ID4jIyMGg6GKoZAAAB0+G/0Zp7J2AAAAAElFTkSuQmCC");
-    /* Pattern de points */
 }
 
-
-/* --- Composants UI Génériques --- */
+/* UI Elements */
 .win98-btn {
-    font-family: var(--font-win);
-    font-size: 12px;
-    padding: 4px 10px;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--win-black);
-    display: inline-block;
+    font-family: var(--font-win); font-size: 12px; padding: 4px 10px;
+    cursor: pointer; text-decoration: none; color: var(--win-black); display: inline-block;
 }
-
-/* Effet bouton appuyé */
-.win98-btn:active,
-.start-btn:active {
-    border-top: 1px solid var(--win-black) !important;
-    border-left: 1px solid var(--win-black) !important;
-    border-right: 1px solid var(--win-light-gray) !important;
-    border-bottom: 1px solid var(--win-light-gray) !important;
+.win98-btn:active, .start-btn:active {
+    border-top: 1px solid var(--win-black) !important; border-left: 1px solid var(--win-black) !important;
+    border-right: 1px solid var(--win-light-gray) !important; border-bottom: 1px solid var(--win-light-gray) !important;
     box-shadow: inset 1px 1px 0px var(--win-dark-gray), inset -1px -1px 0px var(--win-white) !important;
     padding: 5px 9px 3px 11px !important;
-    /* Décalage du texte quand appuyé */
 }
-
-.win-input {
-    font-family: "Courier New", monospace;
-    /* Police machine à écrire pour les inputs */
-    padding: 3px 5px;
-    border-radius: 0;
-    outline: none;
-}
-
-.win-input:focus {
-    background-color: var(--win-white);
-}
-
-/* Fieldset pour grouper le contenu */
+.win-input { font-family: "Courier New", monospace; padding: 3px 5px; border-radius: 0; outline: none; }
+.win-input:focus { background-color: var(--win-white); }
 .fieldset-look {
-    border: 1px solid var(--win-light-gray);
-    border-right-color: var(--win-white);
-    border-bottom-color: var(--win-white);
-    box-shadow: -1px -1px 0px var(--win-dark-gray), 1px 1px 0px var(--win-black);
-    padding: 15px;
-    margin-bottom: 20px;
+    border: 1px solid var(--win-light-gray); border-right-color: var(--win-white); border-bottom-color: var(--win-white);
+    box-shadow: -1px -1px 0px var(--win-dark-gray), 1px 1px 0px var(--win-black); padding: 15px; margin-bottom: 20px;
 }
+legend { margin-left: 10px; padding: 0 5px; }
+.win-heading { font-size: 14px; margin-bottom: 15px; border-bottom: 1px solid var(--win-white); box-shadow: 0 1px 0 var(--win-dark-gray); padding-bottom: 2px; }
+.win-section { margin-bottom: 40px; }
+.last-section { margin-bottom: 20px; }
 
-legend {
-    margin-left: 10px;
-    padding: 0 5px;
-}
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.project-card { padding: 2px; }
+.inactive-title-bar { background: var(--win-dark-gray); color: var(--win-light-gray); padding: 2px 5px; font-size: 11px; }
+.card-content { padding: 15px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.card-content img { width: 32px; height: 32px; }
 
-.win-heading {
-    font-size: 14px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid var(--win-white);
-    box-shadow: 0 1px 0 var(--win-dark-gray);
-    padding-bottom: 2px;
-}
+.form-group { display: flex; margin-bottom: 10px; align-items: center; }
+.form-group label { width: 80px; text-align: right; margin-right: 10px; }
+.form-group input, .form-group textarea { flex: 1; }
+.win-textarea { resize: none; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px; }
+.status-bar { margin: 0; padding: 2px 5px; background: var(--win-gray); border-top: 1px solid var(--win-light-gray); box-shadow: inset 0 1px 0 var(--win-dark-gray); flex-shrink: 0; }
 
-/* --- Sections Spécifiques --- */
-.win-section {
-    margin-bottom: 40px;
-}
-
-.last-section {
-    margin-bottom: 20px;
-}
-
-/* About */
-.about-layout {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.pixel-img {
-    width: 64px;
-    height: 64px;
-    image-rendering: pixelated;
-}
-
-.skills-panel {
-    margin-top: 15px;
-    padding: 10px;
-    background: var(--win-white);
-}
-
-.skills-panel ul {
-    list-style: none;
-    margin-top: 5px;
-}
-
-/* Projects Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.project-card {
-    padding: 2px;
-}
-
-.inactive-title-bar {
-    background: var(--win-dark-gray);
-    color: var(--win-light-gray);
-    padding: 2px 5px;
-    font-size: 11px;
-}
-
-.card-content {
-    padding: 15px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.card-content img {
-    width: 32px;
-    height: 32px;
-}
-
-/* Contact Form */
-.form-group {
-    display: flex;
-    margin-bottom: 10px;
-    align-items: center;
-}
-
-.form-group label {
-    width: 80px;
-    text-align: right;
-    margin-right: 10px;
-}
-
-.form-group input,
-.form-group textarea {
-    flex: 1;
-}
-
-.win-textarea {
-    resize: none;
-}
-
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-/* Status Bar (footer de la fenêtre) */
-.status-bar {
-    margin: 0; /* Reset margin pour l'intérieur de IE */
-    padding: 2px 5px;
-    background: var(--win-gray);
-    border-top: 1px solid var(--win-light-gray);
-    box-shadow: inset 0 1px 0 var(--win-dark-gray);
-}
-
-
-/* --- BARRE DES TÂCHES (FIXED FOOTER) --- */
 .taskbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 28px;
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    z-index: 9999;
-    border-top: 1px solid var(--win-light-gray) !important;
+    position: fixed; bottom: 0; left: 0; width: 100%; height: 28px; padding: 2px;
+    display: flex; align-items: center; z-index: 9999; border-top: 1px solid var(--win-light-gray) !important;
 }
-
-.start-btn {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-weight: bold;
-    padding: 2px 5px 2px 3px;
-    height: 22px;
-}
-
-.start-btn img {
-    height: 16px;
-}
-
-.taskbar-divider {
-    width: 2px;
-    height: 20px;
-    margin: 0 5px;
-    border-left: 1px solid var(--win-dark-gray);
-    border-right: 1px solid var(--win-white);
-}
-
+.start-btn { display: flex; align-items: center; gap: 4px; font-weight: bold; padding: 2px 5px 2px 3px; height: 22px; }
+.start-btn img { height: 16px; }
+.taskbar-divider { width: 2px; height: 20px; margin: 0 5px; border-left: 1px solid var(--win-dark-gray); border-right: 1px solid var(--win-white); }
 .task-item {
-    flex: 1;
-    max-width: 300px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 0 5px;
-    font-size: 11px;
-    /* Style de tâche active (enfoncée) */
-    border-top: 1px solid var(--win-black) !important;
-    border-left: 1px solid var(--win-black) !important;
-    border-right: 1px solid var(--win-light-gray) !important;
-    border-bottom: 1px solid var(--win-light-gray) !important;
+    flex: 1; max-width: 300px; height: 22px; display: flex; align-items: center; gap: 5px; padding: 0 5px; font-size: 11px;
+    border-top: 1px solid var(--win-black) !important; border-left: 1px solid var(--win-black) !important;
+    border-right: 1px solid var(--win-light-gray) !important; border-bottom: 1px solid var(--win-light-gray) !important;
     box-shadow: inset 1px 1px 0px var(--win-dark-gray), inset -1px -1px 0px var(--win-white) !important;
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAIklEQVQoU2NkgALmi4//Q0H4+P//ID4jIyMGg6GKoZAAAB0+G/0Zp7J2AAAAAElFTkSuQmCC");
-    /* Pattern de points pour bouton actif */
     font-weight: bold;
 }
-
-.task-item img {
-    height: 16px;
-}
-
+.task-item img { height: 16px; }
 .tray-area {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 2px 5px;
-    border-top: 1px solid var(--win-dark-gray);
-    border-left: 1px solid var(--win-dark-gray);
-    border-right: 1px solid var(--win-white);
-    border-bottom: 1px solid var(--win-white);
+    margin-left: auto; display: flex; align-items: center; gap: 5px; padding: 2px 5px;
+    border-top: 1px solid var(--win-dark-gray); border-left: 1px solid var(--win-dark-gray);
+    border-right: 1px solid var(--win-white); border-bottom: 1px solid var(--win-white);
     box-shadow: inset 1px 1px 0px var(--win-black), inset -1px -1px 0px var(--win-light-gray);
-    background: var(--win-gray);
-    height: 22px;
+    background: var(--win-gray); height: 22px;
 }
+.tray-icon { height: 16px; } .time { font-size: 11px; }
 
-.tray-icon {
-    height: 16px;
-}
-
-.time {
-    font-size: 11px;
-}
-
-/* Responsive rapide */
 @media screen and (max-width: 600px) {
-    .win98-container {
-        width: 95%;
-        left: 2.5%;
-        top: 10px;
-        height: 85vh;
-    }
-    .desktop-icons {
-        display: none; /* Cache les icônes sur mobile pour la place */
-    }
-    .menu-bar, .toolbar, .address-bar {
-        display: none; /* Cache les barres IE sur mobile */
-    }
-    /* Réaffiche la navigation interne pour le mobile */
-    .internal-nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    .win98-container { width: 95%; height: 85vh; top: 10px; left: 2.5%; transform: none; }
+    .desktop-icons, .menu-bar, .toolbar, .address-bar { display: none; }
+    .internal-nav { display: flex; flex-wrap: wrap; justify-content: center; }
+    .form-group { flex-direction: column; align-items: flex-start; }
+    .form-group label { text-align: left; width: 100%; margin-bottom: 5px; }
+}
 
-    .form-group {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* --- WORDART STYLES --- */
 
-    .form-group label {
-        text-align: left;
-        width: 100%;
-        margin-bottom: 5px;
-    }
+/* Option 1 : Le Classique Arc-en-ciel */
+.wordart-rainbow {
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-size: 3rem; /* Ajuste la taille selon tes besoins */
+    font-weight: bold;
+    
+    /* Le dégradé arc-en-ciel vertical */
+    background: linear-gradient(
+        to bottom, 
+        #9400D3 0%,   /* Violet */
+        #4B0082 15%,  /* Indigo */
+        #0000FF 30%,  /* Bleu */
+        #00FF00 50%,  /* Vert */
+        #FFFF00 70%,  /* Jaune */
+        #FF7F00 85%,  /* Orange */
+        #FF0000 100%  /* Rouge */
+    );
+    
+    /* Coupe le fond pour qu'il ne s'affiche que DANS le texte */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* Rend le texte transparent pour voir le dégradé derrière */
+    color: transparent;
+    
+    /* Le contour noir fin (essentiel pour le look WordArt) */
+    -webkit-text-stroke: 1px black;
+    
+    /* L'ombre portée dure pour l'effet sticker */
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.3));
+    
+    /* La déformation : on écrase un peu et on penche */
+    transform: scaleY(1.2) skewY(-2deg);
+    display: inline-block; /* Nécessaire pour le transform */
+}
+
+/* Option 2 : Le Bleu Métallique 3D (Plus "Windows 98") */
+.wordart-blue {
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-size: 3rem;
+    color: #4050ff; /* Bleu de base */
+    
+    /* Création de l'effet 3D par empilement d'ombres */
+    text-shadow: 
+        1px 1px 0px #c0c0c0, 
+        2px 2px 0px #1a2a8a, 
+        3px 3px 0px #1a2a8a, 
+        4px 4px 0px #1a2a8a, 
+        6px 6px 5px rgba(0,0,0,0.5);
+    
+    /* Légère courbe simulée */
+    transform: scale(1, 1.3) perspective(200px) rotateX(10deg);
+    display: inline-block;
+    /* Ajout d'un léger dégradé pour l'effet métallique */
+    background: linear-gradient(180deg, #a0b0ff, #2030ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*Faire en sorte qu'il soit au milieu*/
+    text-align: center;
+    
+    /* Petit contour blanc pour détacher du fond gris */
+    -webkit-text-stroke: 1px #ffffff;
 }
