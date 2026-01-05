@@ -136,7 +136,7 @@ body {
 
 /* --- Interface IE --- */
 .menu-bar {
-    background-color: var(--win-gray); padding: 2px 5px; border-bottom: 1px solid var(--win-dark-gray);
+    background-color: var(--win-gray); padding: 1px 5px; border-bottom: 1px solid var(--win-dark-gray);
     display: flex; justify-content: space-between; align-items: center; flex-shrink: 0;
 }
 .menu-links { list-style: none; display: flex; }
