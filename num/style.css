@@ -388,7 +388,7 @@ legend { margin-left: 10px; padding: 0 5px; }
 }
 
 /* en gras*/
-p {
+#paraMoi {
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.4;
