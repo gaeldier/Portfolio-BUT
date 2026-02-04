@@ -30,7 +30,7 @@ setInterval(updateTime, 60000);
 
 // Bonus : Bouton "Fermer" avec BSOD
 document.querySelector('.close-btn').addEventListener('click', () => {
-    if(confirm("Attention : Cette opération est illégale.\nVoulez-vous vraiment fermer 'Internet Explorer' ? \n C'est pas super cool...")) {
+    if(confirm("Cette opération est illégale.\nVoulez-vous vraiment fermer Internet Explorer ? \n C'est pas super cool...")) {
         new Promise(resolve => setTimeout(resolve, 3000)).then(() => {
             displayBlueScreen();
         });
@@ -48,7 +48,7 @@ function displayBlueScreen() {
             <p>Appuyez sur CTRL+ALT+SUPPR pour redémarrer votre ordinateur.</p>
             <br>
             <h2 style="text-align:center"><span id="percentage">0</span>% complete</h2>
-            <p style="text-align: center; margin-top: 50px;">Contactez gael@exemple.fr et pressez une touche pour continuer _</p>
+            <p style="text-align: center; margin-top: 50px;">Contactez gaeldierynck@gmail.com et pressez une touche pour continuer _</p>
         </div>
     `;
 
