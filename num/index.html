@@ -239,8 +239,24 @@
                 </form>
             </section>
 
+            <script>
+                document.getElementById('contactForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const emailDestinataire = "gaeldierynck@gmail.com";
+
+                    const name = document.getElementById('name').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+
+                    const corpsMail = `Nom de l'expéditeur : ${name}\n\nMessage :\n${message}`;
+
+                    // encodeURIComponent permet de gérer les accents et les espaces proprement
+                    window.location.href = `mailto:${emailDestinataire}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(corpsMail)}`;
+                });
+            </script>
             <footer class="plain-panel status-bar">
-                <p>Prêt. © 2025 Gaël Dierynck - IUT Lille.</p>
+                <p>Prêt. © 2025 Gaël Dierynck - IUT Lille. | Icônes : Alex Meub</p>
             </footer>
 
         </div>
