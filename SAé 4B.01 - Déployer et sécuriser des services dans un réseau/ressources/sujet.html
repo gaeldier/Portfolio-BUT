@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>SAÉ B - Déployer et sécuriser des services dans un réseau</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+
+h1
+{
+font-size: 1.5em;
+font-weight: bold;
+border-bottom: 1px solid #aaa;
+}
+h2
+{
+color: #333;
+font-size: 1.25em;
+margin-bottom: 1em;
+border-bottom: 1px dotted #aaa;
+}
+h3
+{
+color: #666;
+font-size: 105%;
+}
+@media screen
+{
+*
+{
+background: white;
+color: #2e2e2e;
+font-size: 13px;
+}
+body
+{
+color: #2e2e2e;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "Free Sans", clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+width: 80%;
+margin: 2em auto 2em auto;
+padding: 0 2em 0 2em;
+border: 1px solid #e5e5e5;
+border-radius: 4px;
+line-height: 1.5;
+text-align: left;
+}
+a,
+a:link,
+a:visited,
+a:active {
+color: blue;
+text-decoration: none;
+}
+a:hover
+{
+text-decoration: none;
+text-shadow: 1px 1px 2px #ccf;
+}
+code, kbd, pre, samp
+{
+color:#c0341d;
+background-color:#fcedea;
+font-family:"Menlo", "DejaVu Sans Mono", "Liberation Mono", "Consolas", "Ubuntu Mono", "Courier New", "andale mono", "lucida console", monospace;
+font-size:1em;
+padding: 1px 3px;
+border-radius: 2px;
+}
+code
+{
+white-space: pre-wrap;
+word-break:keep-all;
+}
+pre
+{
+display: block;
+color:#2e2e2e;
+background-color:#fafafa;
+padding: 10px;
+border: 1px solid #e5e5e5;
+border-radius:3px;
+overflow: auto;
+word-break:break-all;
+word-wrap:break-word;
+}
+pre code
+{
+color: inherit;
+background-color:transparent;
+font-size: inherit;
+padding: 0;
+border-radius:0;
+white-space: pre-wrap;
+}
+table a code
+{
+position: relative;
+top:-2px;
+margin-right:3px;
+}
+ul
+{
+padding-left: 2em;
+}
+li p
+{
+margin: 0.3em;
+}
+ul li
+{
+list-style-type: disc;
+}
+blockquote
+{
+border-left: 5px solid red;
+padding-left: 20px;
+}
+}
+@media print
+{
+body
+{
+background: white;
+color: black;
+margin: 0;
+padding: 0;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 8pt;
+}
+h1
+{
+clear: both;
+}
+ul
+{
+padding-left: 2em;
+}
+pre
+{
+padding-left: 2em;
+border-left: 1.5px solid black;
+margin-left: 3em;
+}
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">SAÉ B - Déployer et sécuriser des services dans un
+réseau</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#scénario" id="toc-scénario"><span class="toc-section-number">1</span> Scénario</a></li>
+<li><a href="#infrastructure-et-technologies" id="toc-infrastructure-et-technologies"><span class="toc-section-number">2</span> Infrastructure et
+technologies</a></li>
+<li><a href="#travail-attendu" id="toc-travail-attendu"><span class="toc-section-number">3</span> Travail attendu</a>
+<ul>
+<li><a href="#scripts-de-création-de-linfrastructure" id="toc-scripts-de-création-de-linfrastructure"><span class="toc-section-number">3.1</span> scripts de création de
+l’infrastructure</a></li>
+<li><a href="#scripts-de-déploiement-client" id="toc-scripts-de-déploiement-client"><span class="toc-section-number">3.2</span> scripts de déploiement
+client</a></li>
+</ul></li>
+<li><a href="#méthodologie" id="toc-méthodologie"><span class="toc-section-number">4</span> Méthodologie</a></li>
+<li><a href="#rendu-évaluation" id="toc-rendu-évaluation"><span class="toc-section-number">5</span> Rendu / évaluation</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="scénario"><span class="header-section-number">1</span> Scénario</h1>
+<p>On trouve assez facilement des offres d’hébergement de la solution
+Dolibarr permettant aux entreprises de se décharger des questions
+d’installation, de paramétrage et de maintenance (par exemple <a href="https://www.dolizen.fr/">ici</a> et <a href="https://dolibarr.io/hebergement/">ici</a>).</p>
+<p>Globalement, sur ces offres on retrouve :</p>
+<ul>
+<li>la possibilité d’avoir une installation dans une version
+spécifique</li>
+<li>une isolation des différents clients (chacun son installation)</li>
+<li>un accès HTTPS</li>
+<li>une sauvegarde des données</li>
+<li>la sécurité</li>
+</ul>
+<p>Dans le cadre de cette SAÉ, on vous propose de vous mettre en
+position d’hébergeur. Vous devrez donc mettre en place une
+infrastructure permettant de réaliser l’hébergement de différents
+serveurs Dolibarr pour des clients. Dans la mesure où vous pourrez être
+amenés à réaliser plusieurs installations en fonction des besoins des
+clients, il devient primordial d’automatiser le processus de déploiment.
+<strong>L’élément central de cette SAÉ sera donc la production de
+scripts shell permettant ce déploiment automatique</strong>.</p>
+<h1 data-number="2" id="infrastructure-et-technologies"><span class="header-section-number">2</span> Infrastructure et
+technologies</h1>
+<p>La figure ci-dessous vous présente l’infrastructure à mettre en place
+qui est assez similaire à celle de la SAÉ précédente.</p>
+<p><svg id="svg26292" width="126.67082mm" height="114.58417mm" viewBox="0 0 126.67082 114.58417" inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)" sodipodi:docname="infrastructure.svg" inkscape:export-filename="infrastructure.png" inkscape:export-xdpi="96" inkscape:export-ydpi="96" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview id="svg26292_namedview26294" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:document-units="mm" showgrid="false" inkscape:zoom="1.8116734" inkscape:cx="213.61466" inkscape:cy="282.05967" inkscape:window-width="2560" inkscape:window-height="1371" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="1" inkscape:current-layer="layer1" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:showpageshadow="2" inkscape:deskcolor="#d1d1d1"></sodipodi:namedview>
+  <defs id="svg26292_defs26289">
+    <rect x="299.11838" y="285.39859" width="33.263672" height="68.114082" id="svg26292_rect38053"></rect>
+  </defs>
+  <g inkscape:label="Calque 1" inkscape:groupmode="layer" id="svg26292_layer1" transform="translate(-33.467796,-7.4145309)">
+    <path style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 89.285303,32.548917 -0.02461,23.766664" id="svg26292_path48423" sodipodi:nodetypes="cc"></path>
+    <g id="svg26292_g43596">
+      <path d="m 72.084535,12.28709 c -15.061901,0 -18.827376,7.400685 -6.777856,8.880823 -12.04952,3.256301 1.506191,10.36096 11.296428,7.400685 6.777858,5.920548 29.370713,5.920548 36.901663,0 15.0619,0 15.0619,-5.920548 5.64821,-8.880823 C 128.56667,13.767227 113.50477,7.846678 100.3256,10.806952 90.911916,6.3665403 75.850012,6.3665403 72.084535,12.28709 Z" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all" id="svg26292_path6" style="stroke-width:0.454337"></path>
+      <text xml:space="preserve" style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583" x="68.39193" y="21.9883" id="svg26292_text32148"><tspan sodipodi:role="line" id="svg26292_tspan32146" style="font-size:4.23333px;stroke-width:0.264583" x="68.39193" y="21.9883">Réseau de l'université</tspan></text>
+    </g>
+    <text xml:space="preserve" transform="scale(0.26458333)" id="svg26292_text38051" style="font-size:21.3333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;white-space:pre;shape-inside:url(#rect38053);display:inline"></text>
+    <text xml:space="preserve" style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583" x="99.153816" y="67.184181" id="svg26292_text46394"><tspan sodipodi:role="line" style="font-size:4.23333px;stroke-width:0.264583" x="99.153816" y="67.184181" id="svg26292_tspan468">Dattier</tspan></text>
+    <text xml:space="preserve" style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583" x="118.00999" y="115.9567" id="svg26292_text52430"><tspan sodipodi:role="line" id="svg26292_tspan52428" style="font-size:4.23333px;stroke-width:0.264583" x="118.00999" y="115.9567">Sauvegardes</tspan></text>
+    <text xml:space="preserve" style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;text-align:center;word-spacing:0px;text-anchor:middle;stroke-width:0.264583" x="91.559677" y="115.9567" id="svg26292_text63234"><tspan sodipodi:role="line" id="svg26292_tspan63232" style="font-size:4.23333px;text-align:center;text-anchor:middle;stroke-width:0.264583" x="91.559677" y="115.9567">Base de</tspan><tspan sodipodi:role="line" style="font-size:4.23333px;text-align:center;text-anchor:middle;stroke-width:0.264583" x="91.559677" y="121.24837" id="svg26292_tspan63236">données</tspan></text>
+    <text xml:space="preserve" style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583" x="59.3162" y="115.88226" id="svg26292_text67638"><tspan sodipodi:role="line" id="svg26292_tspan67636" style="font-size:4.23333px;text-align:center;text-anchor:middle;stroke-width:0.264583" x="59.3162" y="115.88226">Serveur</tspan><tspan sodipodi:role="line" style="font-size:4.23333px;text-align:center;text-anchor:middle;stroke-width:0.264583" x="59.3162" y="121.17393" id="svg26292_tspan67640">Dolibarr</tspan></text>
+    <path style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 56.869561,85.675751 71.607499,-0.07187 v 12.04368" id="svg26292_path87883" sodipodi:nodetypes="ccc"></path>
+    <path style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 89.161703,85.799926 V 97.776645" id="svg26292_path87887"></path>
+    <path style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 56.927819,85.883341 V 97.783614" id="svg26292_path88082"></path>
+    <path style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 89.082609,85.825152 V 68.652476" id="svg26292_path88084"></path>
+    <path d="m 64.755338,106.58924 h 0.39423 v -0.39423 h -0.39423 z m -0.785812,0 h 0.394229 v -0.39423 h -0.394229 z m -10.599207,4.34711 V 97.902972 c 0,-0.48419 0.399519,-0.7964 0.764645,-0.7964 h 5.490105 c 0.547686,0 0.81227,0.43921 0.81227,0.79111 v 7.307788 h -2.169584 c -0.568854,0 -0.97102,0.48419 -0.97102,0.97102 v 0.80698 h -2.553229 v 0.59267 h 2.553229 v 1.18533 h -2.553229 v 0.59267 h 2.553229 v 1.58221 z m 1.373187,-11.459108 h 4.320645 v -0.59266 h -4.320645 z m 3.518958,12.445998 c -0.182563,0 -0.378355,-0.13758 -0.378355,-0.38364 v -5.36311 c 0,-0.18521 0.132293,-0.37835 0.391584,-0.37835 h 6.892395 c 0.216959,0 0.373063,0.16933 0.373063,0.39423 v 5.33929 c 0,0.25135 -0.182563,0.39158 -0.378354,0.39158 z m 0.01588,-0.39423 h 6.87123 v -4.54554 h -6.87123 z m 4.908022,-4.93977 h 0.391583 v -0.39423 h -0.391583 z" fill="#505050" stroke="none" pointer-events="all" id="svg26292_path28-4" style="stroke-width:0.264583"></path>
+    <path d="m 96.872578,106.58925 h 0.39423 v -0.39423 h -0.39423 z m -0.785804,0 h 0.394227 v -0.39423 h -0.394227 z m -10.59915,4.3471 V 97.902972 c 0,-0.48419 0.399517,-0.7964 0.764644,-0.7964 h 5.49007 c 0.547687,0 0.812267,0.43921 0.812267,0.79111 v 7.307798 h -2.169568 c -0.568847,0 -0.971014,0.48419 -0.971014,0.97102 v 0.80698 h -2.553218 v 0.59267 h 2.553218 v 1.18533 h -2.553218 v 0.59267 h 2.553218 v 1.5822 z m 1.373181,-11.459108 h 4.320626 v -0.59267 h -4.320626 z m 3.518942,12.446008 c -0.18256,0 -0.37836,-0.13758 -0.37836,-0.38365 v -5.3631 c 0,-0.18521 0.1323,-0.37835 0.39159,-0.37835 h 6.892351 c 0.216957,0 0.373057,0.16933 0.373057,0.39423 v 5.33929 c 0,0.25135 -0.18256,0.39158 -0.378347,0.39158 z m 0.0159,-0.39423 h 6.871191 v -4.54554 h -6.871191 z m 4.90799,-4.93977 h 0.39158 v -0.39423 h -0.39158 z" fill="#505050" stroke="none" pointer-events="all" id="svg26292_path28-2" style="stroke-width:0.264583"></path>
+    <path d="m 137.1048,106.58923 h 0.39422 V 106.195 h -0.39422 z m -0.78582,0 h 0.39423 V 106.195 h -0.39423 z m -10.5992,4.34711 V 97.902962 c 0,-0.48419 0.39952,-0.79639 0.76464,-0.79639 h 5.49011 c 0.54768,0 0.81226,0.4392 0.81226,0.7911 v 7.307788 h -2.16958 c -0.56885,0 -0.97102,0.48419 -0.97102,0.97102 v 0.80698 h -2.55323 v 0.59267 h 2.55323 v 1.18533 h -2.55323 v 0.59267 h 2.55323 v 1.58221 z m 1.37318,-11.459112 h 4.32065 v -0.592656 h -4.32065 z m 3.51896,12.446002 c -0.18256,0 -0.37835,-0.13758 -0.37835,-0.38364 v -5.36311 c 0,-0.18521 0.13229,-0.37835 0.39158,-0.37835 h 6.89239 c 0.21696,0 0.37307,0.16933 0.37307,0.39423 v 5.33929 c 0,0.25135 -0.18257,0.39158 -0.37836,0.39158 z m 0.0159,-0.39423 h 6.87123 v -4.54554 h -6.87123 z m 4.90802,-4.93977 h 0.39159 V 106.195 h -0.39159 z" fill="#505050" stroke="none" pointer-events="all" id="svg26292_path28-1" style="stroke-width:0.264583"></path>
+    <path d="m 97.188787,64.643706 h 0.39423 v -0.394229 h -0.39423 z m -0.785812,0 h 0.394229 V 64.249477 H 96.402975 Z M 85.803767,68.99081 V 55.957435 c 0,-0.484187 0.39952,-0.796396 0.764645,-0.796396 h 5.490105 c 0.547687,0 0.81227,0.439209 0.81227,0.791105 v 7.307791 h -2.169583 c -0.568854,0 -0.971021,0.484188 -0.971021,0.971021 v 0.806979 h -2.553229 v 0.592667 h 2.553229 v 1.185333 h -2.553229 v 0.592667 h 2.553229 V 68.99081 Z M 87.176954,57.531706 H 91.4976 v -0.592667 h -4.320646 z m 3.518958,12.446 c -0.182562,0 -0.378354,-0.137583 -0.378354,-0.383646 v -5.363104 c 0,-0.185208 0.132292,-0.378354 0.391584,-0.378354 h 6.892395 c 0.216959,0 0.373063,0.169333 0.373063,0.394229 v 5.339292 c 0,0.251354 -0.182563,0.391583 -0.378354,0.391583 z m 0.01588,-0.394229 h 6.87123 v -4.545542 h -6.87123 z m 4.908021,-4.939771 h 0.391584 v -0.394229 h -0.391584 z" fill="#505050" stroke="none" pointer-events="all" id="svg26292_path28" style="stroke-width:0.264583"></path>
+    <text xml:space="preserve" style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583" x="90.192772" y="50.224167" id="svg26292_text90996"><tspan sodipodi:role="line" id="svg26292_tspan90994" style="font-size:4.23333px;stroke-width:0.264583" x="90.192772" y="50.224167">172.18.48.0/22</tspan></text>
+  </g>
+</svg></p>
+<p>Les choix d’infastructure sont les suivants :</p>
+<ul>
+<li>Le serveur de base donnée hébergera une base PostgreSQL. Chaque
+client aura une base spécifique pour son instance Dolibarr</li>
+<li>Le serveur Dolibarr sera utilisé pour le déploiement des différentes
+instances des clients sous forme de containers docker</li>
+<li>Les serveurs Dolibarr seront accessibles via un reverse proxy. Le
+reverse proxy choisi est <a href="https://traefik.io/traefik/">traefik</a>. Celui-ci permettra un
+accès différencié pour chaque client avec une URL du type
+<em>nomclient.machine-physique.iutinfo.fr</em></li>
+<li>La base de données sera sauvegardée périodiquement (<em>dump</em>
+des bases) et copiée sur le serveur de sauvegarde (voir
+<em>rsync</em>)</li>
+</ul>
+<p>La sécurisation doit être prise en compte :</p>
+<ul>
+<li>Les instances Dolibarr et la base de données ne sont pas accessibles
+directement et les connexions vers la base de données seront reduites au
+strict nécessaire (Dolibarr client -&gt; base client)</li>
+<li>en option, vous pourrez travailler sur la mise en place de HTTPS sur
+le reverse proxy (voir mkcert)</li>
+</ul>
+<h1 data-number="3" id="travail-attendu"><span class="header-section-number">3</span> Travail attendu</h1>
+<p>Le travail sera réalisé en binômes.</p>
+<p>Vous utiliserez <code>dattier</code> pour vos machines de
+virtualisation comme pour la SAÉ précédente et avec les adressses de
+réseau qui vous ont été attribuées à la SAÉ 3.03.</p>
+<p>Vous devrez produire des scripts shell pour automatiser le
+déploiement ainsi que les procédures d’utilisation de ces scripts. Les
+scripts devront fonctionner au maximum sans intervention humaine en vous
+basant sur les paramètres passés et/ou des fichiers de configuration</p>
+<p>Vous aurez deux grandes catégories de scripts :</p>
+<h2 data-number="3.1" id="scripts-de-création-de-linfrastructure"><span class="header-section-number">3.1</span> scripts de création de
+l’infrastructure</h2>
+<p>Ce ou ces scripts ont pour objectif de créer et configurer les
+machines virtuelles qui constituent l’infrastructure globale (Serveur
+proxy, Serveur Dolibarr…).</p>
+<p>Ces scripts seront utiles par exemple dans le cadre d’un <a href="https://fr.wikipedia.org/wiki/Plan_de_reprise_d%27activit%C3%A9_(informatique)">Plan
+de Reprise d’Activité (PRA)</a> pour reconstruire rapidement votre
+infrastructure en cas d’incident.</p>
+<h2 data-number="3.2" id="scripts-de-déploiement-client"><span class="header-section-number">3.2</span> scripts de déploiement
+client</h2>
+<p>Ce ou ces scripts servent à réaliser le déploiement d’un nouveau
+client. À l’issue de l’exécution vous devriez avoir :</p>
+<ul>
+<li>un utilisateur et une base spécifique pour le client</li>
+<li>un Dolibarr déployé pour le client (connecté à la base)</li>
+<li>La sauvegarde prendra en compte la nouvelle base</li>
+</ul>
+<h1 data-number="4" id="méthodologie"><span class="header-section-number">4</span> Méthodologie</h1>
+<p>Lors de la SAÉ précédente vous avez été guidés dans une méthodologie
+de maquettage visant à :</p>
+<ol type="1">
+<li>Installer les services individuellement pour voir comment ils
+fonctionnenent et comment ils se configurent</li>
+<li>La mise en relation progressive des différents services de manière à
+comprendre comment ils interagissent et la configuration nécessaire</li>
+<li>Un déploiment complet correspondant aux attentes et objectifs
+initiaux</li>
+</ol>
+<p>Vous êtes encouragés à utiliser le même type de méthodologie pour
+progresser dans cette SAÉ. Vous pouvez si vous le souhaitez utiliser les
+<em>milestones</em>, <em>issues</em> et <em>boards</em> de gitlab pour
+organiser votre travail.</p>
+<h1 data-number="5" id="rendu-évaluation"><span class="header-section-number">5</span> Rendu / évaluation</h1>
+<p>Votre travail sera rendu sur gitlab : scripts et procédures
+d’utilisation.</p>
+<p>Une démo sera (probablement) organisée sur la dernière séance.</p>
+
+
+</body></html>
